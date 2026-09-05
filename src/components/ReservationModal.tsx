@@ -90,9 +90,9 @@ Mohon informasi ketersediaan meja/ruangan dan konfirmasi reservasi. Terima kasih
               src="/images/skyscape-indoor-dining.jpg"
               alt="Suasana ruang makan kaca segitiga A-frame Skyscapecafe Punclut Bandung"
               fill
+              quality={80}
               className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, 42vw"
-              priority
             />
 
             {/* Dark Aesthetic Gradient Overlay */}
@@ -153,6 +153,7 @@ Mohon informasi ketersediaan meja/ruangan dan konfirmasi reservasi. Terima kasih
                 src="/images/skyscape-indoor-dining.jpg"
                 alt="Suasana ruang makan Skyscapecafe"
                 fill
+                quality={80}
                 className="object-cover"
                 sizes="100vw"
               />

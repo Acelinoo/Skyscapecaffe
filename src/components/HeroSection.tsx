@@ -118,8 +118,9 @@ export function HeroSection({ onOpenReservation }: HeroSectionProps) {
                   alt="Gedung utama Skyscapecafe Bandung berarsitektur kaca A-frame di kawasan Punclut"
                   fill
                   priority
+                  quality={82}
                   className="object-cover object-center transition-transform duration-700 hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 45vw"
                 />
 
                 {/* Dark Vignette Overlay for Depth & Contrast */}

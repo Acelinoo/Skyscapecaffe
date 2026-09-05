@@ -56,6 +56,7 @@ export function VipMeetingSection({ onOpenReservation }: VipMeetingSectionProps)
                 src="/images/skyscape-vip-glasshouse.jpg"
                 alt="Ruangan VIP Glasshouse Skyscapecafe untuk meeting dan gathering lengkap dengan proyektor"
                 fill
+                quality={82}
                 className="object-cover transition-transform duration-700 hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />

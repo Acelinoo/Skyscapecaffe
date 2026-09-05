@@ -108,6 +108,7 @@ export function OurStorySection() {
                   src="/images/skyscape-bar-counter.jpg"
                   alt="Bar kopi dan konter pastry barista Skyscapecafe Bandung"
                   fill
+                  quality={82}
                   className="object-cover transition-transform duration-700 hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />

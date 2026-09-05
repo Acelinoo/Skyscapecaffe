@@ -35,6 +35,7 @@ export function GoldenHourGuide({ onOpenReservation }: GoldenHourGuideProps) {
                   src="/images/skyscape-outdoor-pampas.jpg"
                   alt="Pemandangan teras santai outdoor Skyscapecafe Bandung di antara ilalang dan panorama langit senja"
                   fill
+                  quality={82}
                   className="object-cover transition-transform duration-700 hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
