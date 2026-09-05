@@ -1,51 +1,26 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Link from "next/link";
 import { ALL_MENU_ITEMS, CAFE_INFO } from "@/data/cafeData";
-import { Calendar, Search, ThumbsUp } from "lucide-react";
+import { ArrowRight, ChevronDown, ThumbsUp, Calendar } from "lucide-react";
 
 interface FullMenuSectionProps {
   onOpenReservation: () => void;
 }
 
-type CategoryFilter =
-  | "all"
-  | "coffee"
-  | "milk-based"
-  | "refreshment"
-  | "tea"
-  | "light-bites"
-  | "main-course"
-  | "special-days";
-
 export function FullMenuSection({ onOpenReservation }: FullMenuSectionProps) {
-  const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
-  const [searchQuery, setSearchQuery] = useState("");
+  // Hanya menampilkan menu rekomendasi / signature di landing page utama
+  const recommendedItems = useMemo(() => {
+    return ALL_MENU_ITEMS.filter((item) => Boolean(item.highlightBadge));
+  }, []);
 
-  const categories: { id: CategoryFilter; label: string }[] = [
-    { id: "all", label: "SEMUA MENU" },
-    { id: "coffee", label: "COFFEE" },
-    { id: "milk-based", label: "MILK BASED" },
-    { id: "refreshment", label: "REFRESHMENT" },
-    { id: "tea", label: "TEA" },
-    { id: "light-bites", label: "LIGHTBITES" },
-    { id: "main-course", label: "MAIN COURSE (RAMEN / RICE / WESTERN / ASIAN)" },
-    { id: "special-days", label: "SPECIAL DAYS (FRI - SUN)" },
-  ];
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const filteredItems = useMemo(() => {
-    return ALL_MENU_ITEMS.filter((item) => {
-      const matchCategory =
-        activeCategory === "all" || item.category === activeCategory;
-      const matchSearch =
-        searchQuery === "" ||
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (item.subOptions &&
-          item.subOptions.toLowerCase().includes(searchQuery.toLowerCase()));
-      return matchCategory && matchSearch;
-    });
-  }, [activeCategory, searchQuery]);
+  const filteredRecommended = useMemo(() => {
+    if (selectedCategory === "all") return recommendedItems;
+    return recommendedItems.filter((item) => item.category === selectedCategory);
+  }, [recommendedItems, selectedCategory]);
 
   return (
     <section
@@ -58,70 +33,62 @@ export function FullMenuSection({ onOpenReservation }: FullMenuSectionProps) {
           <div className="flex items-center justify-center gap-3">
             <div className="h-[1px] w-12 bg-[#80858A]/50" />
             <span className="text-[11px] font-mono tracking-[0.25em] text-[#80858A] uppercase">
-              [TRIAL OPENING // DAFTAR MENU LENGKAP]
+              [PILIHAN REKOMENDASI UNGGULAN]
             </span>
             <div className="h-[1px] w-12 bg-[#80858A]/50" />
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#373A3E] tracking-tight">
-            Menu & Harga Resmi Skyscapecafe
+            Menu Rekomendasi Skyscapecafe
           </h2>
           <p className="text-xs sm:text-sm text-[#80858A] max-w-2xl mx-auto leading-relaxed">
-            Daftar lengkap hidangan kuliner, kopi spesialti, minuman segar, dan
-            menu spesial akhir pekan yang disajikan langsung di perbukitan
-            Bandung.
+            Pilihan hidangan dan racikan kopi favorit yang paling disukai
+            pengunjung. Telusuri katalog lengkap untuk melihat seluruh 50+
+            sajian resmi kami.
           </p>
         </div>
 
-        {/* Search Bar & Quick Filter (Clean non-pill) */}
-        <div className="max-w-md mx-auto mb-8">
-          <div className="relative flex items-center">
-            <Search className="w-4 h-4 text-[#80858A] absolute left-3.5 pointer-events-none" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Cari hidangan (misal: Carbonara, Latte, Tahu, Soto)..."
-              className="w-full pl-10 pr-4 py-2.5 bg-[#F3F4F6] border border-[#D8DCDE] text-xs text-[#373A3E] placeholder-[#80858A] focus:outline-none focus:border-[#373A3E] transition-colors"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery("")}
-                className="absolute right-3 text-xs text-[#80858A] hover:text-[#373A3E] cursor-pointer"
+        {/* Category Dropdown Filter (Sesuai instruksi pengguna) */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-4xl mx-auto mb-10 pb-4 border-b border-[#D8DCDE]">
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            <span className="text-xs font-mono font-semibold text-[#373A3E] uppercase shrink-0">
+              Filter Kategori:
+            </span>
+            <div className="relative flex-1 sm:w-64">
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="w-full appearance-none px-4 py-2.5 bg-[#F3F4F6] border border-[#D8DCDE] text-xs font-medium text-[#373A3E] focus:outline-none focus:border-[#373A3E] cursor-pointer pr-10"
               >
-                Hapus
-              </button>
-            )}
+                <option value="all">Semua Rekomendasi ({recommendedItems.length} Menu)</option>
+                <option value="coffee">Kopi Spesialti</option>
+                <option value="milk-based">Susu & Cokelat</option>
+                <option value="refreshment">Minuman Segar & Mocktail</option>
+                <option value="tea">Teh Artisan & Telang</option>
+                <option value="light-bites">Camilan (Lightbites)</option>
+                <option value="main-course">Hidangan Utama (Western / Asian)</option>
+                <option value="special-days">Spesial Akhir Pekan (Jumat - Minggu)</option>
+              </select>
+              <ChevronDown className="w-4 h-4 text-[#80858A] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+            </div>
           </div>
+
+          <Link
+            href="/menu"
+            className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-[#373A3E] hover:text-[#80858A] uppercase border-b border-[#373A3E] pb-0.5 transition-colors group"
+          >
+            <span>Buka Katalog Menu Lengkap (50+ Menu)</span>
+            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
 
-        {/* Minimalist Tabs (Strictly non-pillbadge: rectangular borders and crisp lines) */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-          {categories.map((cat) => {
-            const isActive = activeCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-3.5 py-2 text-[11px] font-semibold tracking-wider uppercase transition-all duration-200 cursor-pointer border ${
-                  isActive
-                    ? "bg-[#373A3E] text-[#F3F4F6] border-[#373A3E] shadow-sm"
-                    : "bg-[#F3F4F6] text-[#373A3E] border-[#D8DCDE] hover:border-[#80858A] hover:bg-[#D8DCDE]/30"
-                }`}
-              >
-                {cat.label}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Menu Items Grid */}
+        {/* Recommended Menu Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filteredItems.map((item) => (
+          {filteredRecommended.map((item) => (
             <div
               key={item.id}
               className="flex flex-col bg-[#F3F4F6] border border-[#D8DCDE] p-4.5 transition-all duration-200 hover:border-[#80858A] hover:shadow-sm group"
             >
-              {/* Header: Name + Price */}
+              {/* Header: Name + Badge + Price */}
               <div className="flex items-start justify-between gap-3 border-b border-[#D8DCDE] pb-2.5 mb-2.5">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2 flex-wrap">
@@ -160,7 +127,7 @@ export function FullMenuSection({ onOpenReservation }: FullMenuSectionProps) {
                   {item.category === "milk-based" && "Susu & Cokelat"}
                   {item.category === "refreshment" && "Minuman Segar"}
                   {item.category === "tea" && "Teh & Artisan"}
-                  {item.category === "light-bites" && "Makanan Ringan"}
+                  {item.category === "light-bites" && "Camilan"}
                   {item.category === "main-course" && "Hidangan Utama"}
                   {item.category === "special-days" && "Spesial Jumat - Minggu"}
                 </span>
@@ -170,54 +137,36 @@ export function FullMenuSection({ onOpenReservation }: FullMenuSectionProps) {
           ))}
         </div>
 
-        {filteredItems.length === 0 && (
-          <div className="text-center py-12 text-[#80858A] space-y-2">
-            <p className="text-sm">Tidak ada menu yang sesuai dengan kata kunci &ldquo;{searchQuery}&rdquo;.</p>
-            <button
-              onClick={() => {
-                setSearchQuery("");
-                setActiveCategory("all");
-              }}
-              className="text-xs font-semibold text-[#373A3E] underline cursor-pointer"
-            >
-              Reset Pencarian
-            </button>
-          </div>
-        )}
+        {/* Primary CTA to Dedicated Full Menu Page & Reservation */}
+        <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link
+            href="/menu"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#373A3E] hover:bg-[#24272A] text-[#F3F4F6] text-xs font-semibold tracking-widest uppercase transition-all duration-200 shadow-md border border-[#373A3E] group"
+          >
+            <span>LIHAT SELURUH KATALOG LENGKAP (50+ MENU)</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Link>
 
-        {/* Menu Note from Official Printed Menu */}
-        <div className="mt-8 text-center border-t border-[#D8DCDE] pt-4">
-          <p className="text-[11px] font-mono text-[#80858A]">
-            * {CAFE_INFO.taxAndServiceNote} • Ikuti & Tandai kami di Instagram{" "}
-            <a
-              href="https://www.instagram.com/skyscape.cafebandung"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#373A3E] font-semibold hover:underline"
-            >
-              {CAFE_INFO.instagram}
-            </a>
-          </p>
-        </div>
-
-        {/* Reservation CTA Box */}
-        <div className="mt-10 p-6 bg-[#F3F4F6] border border-[#D8DCDE] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div>
-            <h4 className="font-serif text-lg text-[#373A3E]">
-              Ingin Menikmati Hidangan Ini Bersama Kolega atau Pasangan?
-            </h4>
-            <p className="text-xs text-[#80858A] mt-1">
-              Amankan meja pilihan Anda di area teras outdoor sunset, balkon lembah hijau, atau ruang VIP meeting.
-            </p>
-          </div>
           <button
             onClick={onOpenReservation}
-            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 bg-[#373A3E] hover:bg-[#24272A] text-[#F3F4F6] text-xs font-semibold tracking-wider uppercase transition-colors border border-[#373A3E] cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-transparent hover:bg-[#373A3E] text-[#373A3E] hover:text-[#F3F4F6] text-xs font-semibold tracking-widest uppercase transition-all duration-200 border border-[#373A3E] cursor-pointer"
           >
             <Calendar className="w-4 h-4" />
-            RESERVASI MEJA SEKARANG
+            <span>RESERVASI MEJA MAKAN</span>
           </button>
         </div>
+
+        <p className="text-[11px] font-mono text-[#80858A] mt-4 text-center">
+          * {CAFE_INFO.taxAndServiceNote} • Follow & tag kami di Instagram{" "}
+          <a
+            href="https://www.instagram.com/skyscape.cafebandung"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#373A3E] font-semibold hover:underline"
+          >
+            {CAFE_INFO.instagram}
+          </a>
+        </p>
       </div>
     </section>
   );
