@@ -1,0 +1,14 @@
+<svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M85 32 C 85 28, 92 24, 102 24 C 107 20, 118 20, 125 24 C 132 24, 142 27, 142 32 C 142 36, 134 38, 120 38 C 102 38, 85 36, 85 32 Z" fill="#B5BABE"/>
+  <path d="M30 100 L 72 82 L 105 76 L 140 50 L 165 52 L 180 62 L 208 51 L 235 68 L 265 85 L 290 100 Z" fill="#80858A"/>
+  <path d="M48 100 L 80 84 L 115 72 L 140 50 L 158 64 L 170 85 L 172 100 Z" fill="#9DA2A7"/>
+  <path d="M172 100 L 182 82 L 208 51 L 230 65 L 255 82 L 275 100 Z" fill="#9DA2A7"/>
+  <path d="M60 100 L 100 86 L 130 75 L 145 88 L 155 100 Z" fill="#D8DCDE"/>
+  <path d="M135 100 L 155 86 L 185 75 L 215 88 L 245 100 Z" fill="#D8DCDE"/>
+  <path d="M30 100 Q 80 86 110 76 Q 130 60 140 50 Q 150 60 162 72 Q 185 82 208 51 Q 235 68 290 100" stroke="#373A3E" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M70 100 Q 105 84 135 74 Q 150 86 170 100" stroke="#373A3E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M140 50 Q 148 70 168 85 Q 185 92 210 100" stroke="#373A3E" stroke-width="3" stroke-linecap="round"/>
+  <path d="M130 100 Q 150 82 185 73 Q 220 84 265 100" stroke="#373A3E" stroke-width="3" stroke-linecap="round"/>
+  <line x1="20" y1="102" x2="300" y2="102" stroke="#373A3E" stroke-width="4" stroke-linecap="round"/>
+  <text x="160" y="136" text-anchor="middle" fill="#373A3E" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="28" font-weight="600" letter-spacing="8">SKYSCAPE</text>
+</svg>

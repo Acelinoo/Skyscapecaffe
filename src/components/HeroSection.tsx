@@ -1,0 +1,151 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Calendar } from "lucide-react";
+import { CAFE_INFO } from "@/data/cafeData";
+
+interface HeroSectionProps {
+  onOpenReservation: () => void;
+}
+
+export function HeroSection({ onOpenReservation }: HeroSectionProps) {
+  return (
+    <section
+      id="beranda"
+      className="relative w-full pt-6 pb-16 lg:pt-12 lg:pb-24 overflow-hidden bg-[#F3F4F6]"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          {/* Left Column: Typography & Content */}
+          <div className="lg:col-span-6 space-y-6 z-10">
+            {/* Top Minimal Label (Strictly non-pill) */}
+            <div className="flex items-center gap-3">
+              <span className="text-[11px] font-mono tracking-[0.25em] text-[#80858A] uppercase">
+                BANDUNG HIGHLANDS // 1.240 MDPL
+              </span>
+              <div className="h-[1px] w-12 bg-[#80858A]/40" />
+            </div>
+
+            {/* Main Big Display Title */}
+            <div className="space-y-1">
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] font-normal tracking-tight text-[#373A3E] leading-[1.12]">
+                GOOD COFFEE
+                <br />
+                GOOD MOOD
+              </h1>
+              <p className="font-script text-2xl sm:text-3xl text-[#80858A] pt-1">
+                Racikan Sempurna di Ketinggian Bandung
+              </p>
+            </div>
+
+            {/* Headline & Tagline from User Request */}
+            <div className="space-y-2 border-l-2 border-[#373A3E] pl-4">
+              <h2 className="text-base sm:text-lg font-semibold tracking-wide text-[#373A3E] uppercase">
+                {CAFE_INFO.headline}
+              </h2>
+              <p className="text-sm sm:text-base text-[#80858A] leading-relaxed font-normal">
+                {CAFE_INFO.subheadline}
+              </p>
+            </div>
+
+            {/* Body Description */}
+            <p className="text-sm text-[#80858A] leading-relaxed max-w-xl">
+              Rasakan pengalaman bersantap dan menikmati racikan kopi artisan
+              sembari memandangi matahari terbenam dan panorama gemerlap lampu
+              kota Bandung yang spektakuler dari ketinggian.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <Link
+                href="#pilihan-favorit"
+                className="inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-[#373A3E] hover:bg-[#24272A] text-[#F3F4F6] text-xs font-semibold tracking-widest uppercase transition-all duration-200 border border-[#373A3E] group shadow-sm"
+              >
+                <span>JELAJAHI MENU</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+
+              <button
+                onClick={onOpenReservation}
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-transparent hover:bg-[#373A3E] text-[#373A3E] hover:text-[#F3F4F6] text-xs font-semibold tracking-widest uppercase transition-all duration-200 border border-[#373A3E] cursor-pointer"
+              >
+                <Calendar className="w-3.5 h-3.5" />
+                <span>RESERVASI SEKARANG</span>
+              </button>
+            </div>
+
+            {/* Quick Metrics Bar (Minimalist without pill) */}
+            <div className="pt-4 grid grid-cols-3 gap-4 border-t border-[#D8DCDE] max-w-md">
+              <div>
+                <span className="block font-serif text-xl sm:text-2xl text-[#373A3E]">
+                  4.8 / 5.0
+                </span>
+                <span className="text-[11px] font-mono tracking-wider text-[#80858A] uppercase">
+                  Ulasan Google
+                </span>
+              </div>
+              <div>
+                <span className="block font-serif text-xl sm:text-2xl text-[#373A3E]">
+                  360° View
+                </span>
+                <span className="text-[11px] font-mono tracking-wider text-[#80858A] uppercase">
+                  City Lights
+                </span>
+              </div>
+              <div>
+                <span className="block font-serif text-xl sm:text-2xl text-[#373A3E]">
+                  10:00 - 23:00
+                </span>
+                <span className="text-[11px] font-mono tracking-wider text-[#80858A] uppercase">
+                  Buka Setiap Hari
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Hero Image with Organic Brush Mask */}
+          <div className="lg:col-span-6 relative">
+            <div className="relative mx-auto max-w-lg lg:max-w-none">
+              {/* Background ambient aesthetic frame */}
+              <div className="absolute -inset-2 bg-gradient-to-tr from-[#373A3E]/10 to-transparent transform rotate-1 pointer-events-none" />
+
+              {/* Main Image Container */}
+              <div className="relative aspect-[4/3] w-full overflow-hidden shadow-xl border border-[#D8DCDE] bg-[#373A3E]">
+                <Image
+                  src="/images/hero-cafe.jpg"
+                  alt="Suasana interior dan pemandangan sunset Skyscapecafe Bandung"
+                  fill
+                  priority
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+
+                {/* Dark Vignette Overlay for Depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#373A3E]/60 via-transparent to-transparent pointer-events-none" />
+
+                {/* Floating Sign / Atmosphere Note */}
+                <div className="absolute top-4 right-4 bg-[#373A3E]/90 text-[#F3F4F6] px-3.5 py-1.5 backdrop-blur-sm border border-[#80858A]/40 text-right">
+                  <span className="font-script text-base text-[#D8DCDE] block leading-tight">
+                    sunset & city lights
+                  </span>
+                  <span className="text-[9px] font-mono tracking-widest uppercase text-[#9DA2A7]">
+                    PUNCLUT • BANDUNG
+                  </span>
+                </div>
+
+                {/* Bottom Image Tag */}
+                <div className="absolute bottom-4 left-4 bg-[#F3F4F6]/95 text-[#373A3E] px-3.5 py-1.5 border border-[#D8DCDE] backdrop-blur-sm">
+                  <span className="text-[10px] font-mono tracking-widest uppercase font-semibold">
+                    [SKYSCAPE PERSPECTIVE]
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
