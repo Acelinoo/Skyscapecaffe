@@ -42,32 +42,30 @@ export function WaveFeatureStrip() {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[#80858A]/30">
-          {features.map((feature, idx) => {
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-0 lg:divide-x divide-[#80858A]/30">
+          {features.map((feature) => {
             const IconComponent = feature.icon;
             return (
               <div
                 key={feature.title}
-                className={`flex flex-col items-center text-center p-6 lg:px-8 ${
-                  idx !== 0 ? "pt-8 sm:pt-6" : ""
-                }`}
+                className="gsap-reveal flex flex-col items-center text-center p-3 sm:p-6 lg:px-8 bg-[#24272A]/50 lg:bg-transparent border border-[#80858A]/20 lg:border-none"
               >
-                {/* Minimalist Functional Icon without colored box or pill */}
-                <div className="mb-4 text-[#D8DCDE]">
-                  <IconComponent className="w-8 h-8 stroke-[1.5]" />
+                {/* Minimalist Functional Icon */}
+                <div className="mb-2 sm:mb-4 text-[#D8DCDE]">
+                  <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 stroke-[1.5]" />
                 </div>
 
                 {/* Typography Header */}
-                <h3 className="font-serif text-base sm:text-lg tracking-wider uppercase text-[#F3F4F6] mb-1">
+                <h3 className="font-serif text-xs sm:text-base lg:text-lg tracking-wider uppercase text-[#F3F4F6] mb-0.5 sm:mb-1 line-clamp-1">
                   {feature.title}
                 </h3>
-                <span className="text-[10px] font-mono tracking-[0.2em] text-[#9DA2A7] uppercase mb-2 block">
+                <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.15em] text-[#9DA2A7] uppercase mb-1.5 sm:mb-2 block truncate">
                   {feature.subtitle}
                 </span>
 
                 {/* Description */}
-                <p className="text-xs text-[#9DA2A7] leading-relaxed max-w-xs">
+                <p className="text-[10px] sm:text-xs text-[#9DA2A7] leading-relaxed max-w-xs line-clamp-2 sm:line-clamp-none">
                   {feature.description}
                 </p>
               </div>

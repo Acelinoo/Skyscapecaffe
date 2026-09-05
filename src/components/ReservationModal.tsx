@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { X, Calendar, Clock, Users, MapPin, MessageCircle, Monitor } from "lucide-react";
+import { X, Calendar, Clock, Users, MapPin, MessageCircle, Phone, Tag } from "lucide-react";
 import { CAFE_INFO } from "@/data/cafeData";
 
 interface ReservationModalProps {
@@ -16,14 +16,14 @@ export function ReservationModal({
   defaultArea = "Outdoor Terrace - Sunset & City Lights View",
 }: ReservationModalProps) {
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("17:00");
   const [guests, setGuests] = useState("2 Orang");
   const [area, setArea] = useState(defaultArea);
-  const [needProjector, setNeedProjector] = useState("Tidak Perlu");
+  const [eventType, setEventType] = useState("Makan & Ngopi Santai");
   const [specialNotes, setSpecialNotes] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-
 
   useEffect(() => {
     if (isOpen) {
@@ -54,14 +54,15 @@ export function ReservationModal({
 Saya ingin melakukan reservasi meja/ruangan dengan rincian sebagai berikut:
 
 • Nama Pemesan: ${name.trim() || "-"}
-• Tanggal: ${date || "Hari ini"}
-• Jam Kunjungan: ${time} WIB
+• No. WhatsApp / HP: ${phone.trim() || "-"}
+• Tanggal Kunjungan: ${date || "Hari ini"}
+• Jam Kedatangan: ${time} WIB
 • Jumlah Tamu: ${guests}
-• Pilihan Area: ${area}
-• Kebutuhan Proyektor: ${needProjector}
-• Catatan Khusus / Keperluan: ${specialNotes.trim() || "Tidak ada"}
+• Pilihan Area Duduk: ${area}
+• Keperluan / Tipe Acara: ${eventType}
+• Catatan Khusus / Permintaan: ${specialNotes.trim() || "Tidak ada"}
 
-Mohon informasi ketersediaan ruangan/meja dan konfirmasi reservasi. Terima kasih.`;
+Mohon informasi ketersediaan meja/ruangan dan konfirmasi reservasi. Terima kasih.`;
 
     const encodedMessage = encodeURIComponent(message);
     const waUrl = `https://wa.me/${CAFE_INFO.whatsappNumber}?text=${encodedMessage}`;
@@ -74,7 +75,7 @@ Mohon informasi ketersediaan ruangan/meja dan konfirmasi reservasi. Terima kasih
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#373A3E]/70 backdrop-blur-sm animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#373A3E]/70 backdrop-blur-sm animate-fade-in">
       <div
         className="relative w-full max-w-lg bg-[#F3F4F6] border border-[#D8DCDE] text-[#373A3E] shadow-2xl overflow-hidden"
         role="dialog"
@@ -82,12 +83,12 @@ Mohon informasi ketersediaan ruangan/meja dan konfirmasi reservasi. Terima kasih
         aria-labelledby="reservation-title"
       >
         {/* Top Decorative Header */}
-        <div className="bg-[#373A3E] text-[#F3F4F6] px-6 py-5 flex items-center justify-between">
+        <div className="bg-[#373A3E] text-[#F3F4F6] px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
           <div>
-            <span className="text-[11px] font-mono tracking-widest text-[#9DA2A7] uppercase block mb-1">
-              [RESERVASI MEJA & RUANG VIP]
+            <span className="text-[10px] sm:text-[11px] font-mono tracking-widest text-[#9DA2A7] uppercase block mb-0.5 sm:mb-1">
+              [FORMULIR RESERVASI RESMI]
             </span>
-            <h3 id="reservation-title" className="font-serif text-xl sm:text-2xl font-normal tracking-wide">
+            <h3 id="reservation-title" className="font-serif text-lg sm:text-2xl font-normal tracking-wide">
               Reservasi Skyscapecafe
             </h3>
           </div>
@@ -101,89 +102,107 @@ Mohon informasi ketersediaan ruangan/meja dan konfirmasi reservasi. Terima kasih
         </div>
 
         {/* Form Body */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-4 max-h-[82vh] overflow-y-auto">
-          <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-[#373A3E] mb-1.5">
-              Nama Lengkap / Instansi
-            </label>
-            <input
-              type="text"
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Contoh: Raden Arya / PT Teknologi Bandung"
-              className="w-full px-3.5 py-2.5 bg-white border border-[#D8DCDE] text-[#373A3E] text-sm placeholder-[#9DA2A7] focus:outline-none focus:border-[#373A3E] transition-colors"
-            />
-          </div>
-
+        <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-3.5 max-h-[82vh] overflow-y-auto">
+          {/* Row 1: Nama & Nomor Telepon Pemesan */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-[#373A3E] mb-1.5 flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-[#80858A]" /> Tanggal
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#373A3E] mb-1">
+                Nama Lengkap / Instansi *
+              </label>
+              <input
+                type="text"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Contoh: Raden Arya"
+                className="w-full px-3 py-2 bg-white border border-[#D8DCDE] text-[#373A3E] text-xs sm:text-sm placeholder-[#9DA2A7] focus:outline-none focus:border-[#373A3E] transition-colors"
+              />
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#373A3E] mb-1 flex items-center gap-1">
+                <Phone className="w-3 h-3 text-[#80858A]" /> No. WhatsApp / HP *
+              </label>
+              <input
+                type="tel"
+                required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="Contoh: 081234567890"
+                className="w-full px-3 py-2 bg-white border border-[#D8DCDE] text-[#373A3E] text-xs sm:text-sm placeholder-[#9DA2A7] focus:outline-none focus:border-[#373A3E] transition-colors"
+              />
+            </div>
+          </div>
+
+          {/* Row 2: Tanggal & Jam Kedatangan */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#373A3E] mb-1 flex items-center gap-1">
+                <Calendar className="w-3 h-3 text-[#80858A]" /> Tanggal *
               </label>
               <input
                 type="date"
                 required
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#D8DCDE] text-[#373A3E] text-sm focus:outline-none focus:border-[#373A3E] transition-colors"
+                className="w-full px-3 py-2 bg-white border border-[#D8DCDE] text-[#373A3E] text-xs sm:text-sm focus:outline-none focus:border-[#373A3E] transition-colors"
               />
             </div>
+
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-[#373A3E] mb-1.5 flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-[#80858A]" /> Jam Kedatangan
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#373A3E] mb-1 flex items-center gap-1">
+                <Clock className="w-3 h-3 text-[#80858A]" /> Jam Kedatangan *
               </label>
               <select
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#D8DCDE] text-[#373A3E] text-sm focus:outline-none focus:border-[#373A3E] transition-colors"
+                className="w-full px-3 py-2 bg-white border border-[#D8DCDE] text-[#373A3E] text-xs sm:text-sm focus:outline-none focus:border-[#373A3E] transition-colors"
               >
-                <option value="10:00">10:00 WIB (Meeting Pagi)</option>
+                <option value="10:00">10:00 WIB (Pagi)</option>
                 <option value="11:30">11:30 WIB (Makan Siang)</option>
-                <option value="13:30">13:30 WIB (Meeting Siang)</option>
-                <option value="15:30">15:30 WIB (Afternoon Gathering)</option>
-                <option value="16:45">16:45 WIB (Mulai Golden Sunset)</option>
-                <option value="17:30">17:30 WIB (Puncak Sunset)</option>
+                <option value="13:30">13:30 WIB (Siang)</option>
+                <option value="15:30">15:30 WIB (Sore Awal)</option>
+                <option value="16:45">16:45 WIB (Mulai Sunset)</option>
+                <option value="17:30">17:30 WIB (Puncak Golden Sunset)</option>
                 <option value="18:30">18:30 WIB (City Lights Awal)</option>
-                <option value="19:30">19:30 WIB (Dinner & Night Gathering)</option>
+                <option value="19:30">19:30 WIB (Malam / Dinner)</option>
                 <option value="20:30">20:30 WIB</option>
               </select>
             </div>
           </div>
 
+          {/* Row 3: Jumlah Tamu & Pilihan Area */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-[#373A3E] mb-1.5 flex items-center gap-1.5">
-                <Users className="w-3.5 h-3.5 text-[#80858A]" /> Jumlah Tamu
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#373A3E] mb-1 flex items-center gap-1">
+                <Users className="w-3 h-3 text-[#80858A]" /> Jumlah Tamu *
               </label>
               <select
                 value={guests}
                 onChange={(e) => setGuests(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#D8DCDE] text-[#373A3E] text-sm focus:outline-none focus:border-[#373A3E] transition-colors"
+                className="w-full px-3 py-2 bg-white border border-[#D8DCDE] text-[#373A3E] text-xs sm:text-sm focus:outline-none focus:border-[#373A3E] transition-colors"
               >
                 <option value="1 - 2 Orang">1 - 2 Orang (Pasangan / Teman)</option>
                 <option value="3 - 4 Orang">3 - 4 Orang (Keluarga Kecil)</option>
-                <option value="5 - 9 Orang">5 - 9 Orang (Grup Santai)</option>
-                <option value="10 - 20 Orang (VIP Meeting / Gathering)">
-                  10 - 20 Orang (VIP Meeting / Gathering)
+                <option value="5 - 9 Orang">5 - 9 Orang (Rombongan Santai)</option>
+                <option value="10 - 20 Orang (VIP Gathering)">
+                  10 - 20 Orang (VIP Gathering)
                 </option>
-                <option value="20 - 35 Orang (Full VIP Glasshouse Room)">
-                  20 - 35 Orang (Full VIP Glasshouse Room)
+                <option value="20 - 35 Orang (Full VIP Glasshouse)">
+                  20 - 35 Orang (Full VIP Glasshouse)
                 </option>
               </select>
             </div>
+
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-[#373A3E] mb-1.5 flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#80858A]" /> Pilihan Area
+              <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#373A3E] mb-1 flex items-center gap-1">
+                <MapPin className="w-3 h-3 text-[#80858A]" /> Pilihan Area Duduk *
               </label>
               <select
                 value={area}
                 onChange={(e) => setArea(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#D8DCDE] text-[#373A3E] text-sm focus:outline-none focus:border-[#373A3E] transition-colors"
+                className="w-full px-3 py-2 bg-white border border-[#D8DCDE] text-[#373A3E] text-xs sm:text-sm focus:outline-none focus:border-[#373A3E] transition-colors"
               >
-                <option value="Ruang VIP Meeting & Gathering (Termasuk Proyektor)">
-                  Ruang VIP Meeting & Gathering (Ada Proyektor)
-                </option>
                 <option value="Outdoor Terrace - Sunset & City Lights View">
                   Outdoor View Sunset & City Lights
                 </option>
@@ -193,39 +212,43 @@ Mohon informasi ketersediaan ruangan/meja dan konfirmasi reservasi. Terima kasih
                 <option value="Indoor Mezzanine - Cozy & Warm Atmosphere">
                   Indoor Mezzanine Cozy
                 </option>
+                <option value="Ruang VIP Glasshouse (Meeting / Gathering)">
+                  Ruang VIP Glasshouse (Meeting / Gathering)
+                </option>
               </select>
             </div>
           </div>
 
-          {/* Projector Requirement Field */}
+          {/* Row 4: Tipe Acara / Kunjungan */}
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-[#373A3E] mb-1.5 flex items-center gap-1.5">
-              <Monitor className="w-3.5 h-3.5 text-[#80858A]" /> Kebutuhan Fasilitas Proyektor
+            <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#373A3E] mb-1 flex items-center gap-1">
+              <Tag className="w-3 h-3 text-[#80858A]" /> Tipe Acara / Keperluan
             </label>
             <select
-              value={needProjector}
-              onChange={(e) => setNeedProjector(e.target.value)}
-              className="w-full px-3.5 py-2.5 bg-white border border-[#D8DCDE] text-[#373A3E] text-sm focus:outline-none focus:border-[#373A3E] transition-colors"
+              value={eventType}
+              onChange={(e) => setEventType(e.target.value)}
+              className="w-full px-3 py-2 bg-white border border-[#D8DCDE] text-[#373A3E] text-xs sm:text-sm focus:outline-none focus:border-[#373A3E] transition-colors"
             >
-              <option value="Ya, Butuh Proyektor & Layar Presentasi">
-                Ya, Butuh Proyektor & Layar Presentasi (Untuk Meeting / Gathering)
-              </option>
-              <option value="Tidak Perlu Proyektor">
-                Tidak Perlu Proyektor (Hanya Tempat & F&B)
-              </option>
+              <option value="Makan & Ngopi Santai">Makan & Ngopi Santai</option>
+              <option value="Kencan / Momen Spesial Pasangan">Kencan / Momen Spesial Pasangan</option>
+              <option value="Ulang Tahun / Syukuran">Ulang Tahun / Syukuran</option>
+              <option value="Meeting Kerja / Bisnis">Meeting Kerja / Bisnis</option>
+              <option value="Gathering Komunitas / Reuni">Gathering Komunitas / Reuni</option>
+              <option value="Arisan / Kumpul Keluarga">Arisan / Kumpul Keluarga</option>
             </select>
           </div>
 
+          {/* Row 5: Catatan Khusus */}
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-[#373A3E] mb-1.5">
-              Catatan Khusus / Keperluan Acara
+            <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#373A3E] mb-1">
+              Catatan Khusus / Permintaan Meja
             </label>
             <textarea
               rows={2}
               value={specialNotes}
               onChange={(e) => setSpecialNotes(e.target.value)}
-              placeholder="Contoh: Meeting evaluasi kantor kuartal 3, butuh sambungan HDMI dan sound system..."
-              className="w-full px-3.5 py-2.5 bg-white border border-[#D8DCDE] text-[#373A3E] text-sm placeholder-[#9DA2A7] focus:outline-none focus:border-[#373A3E] transition-colors resize-none"
+              placeholder="Contoh: Request meja dekat pagar kaca untuk foto sunset, butuh kursi bayi, dll..."
+              className="w-full px-3 py-2 bg-white border border-[#D8DCDE] text-[#373A3E] text-xs sm:text-sm placeholder-[#9DA2A7] focus:outline-none focus:border-[#373A3E] transition-colors resize-none"
             />
           </div>
 
@@ -238,8 +261,8 @@ Mohon informasi ketersediaan ruangan/meja dan konfirmasi reservasi. Terima kasih
               <MessageCircle className="w-4 h-4 text-[#F3F4F6]" />
               {isSubmitting ? "Menghubungkan ke WhatsApp..." : "Kirim Reservasi via WhatsApp"}
             </button>
-            <p className="text-[11px] text-[#80858A] text-center mt-2.5 leading-relaxed">
-              *Reservasi langsung diteruskan ke WhatsApp staf Skyscapecafe untuk konfirmasi ketersediaan ruangan/meja.
+            <p className="text-[10px] sm:text-[11px] text-[#80858A] text-center mt-2 leading-relaxed">
+              *Reservasi langsung diteruskan ke WhatsApp staf Skyscapecafe untuk konfirmasi ketersediaan meja.
             </p>
           </div>
         </form>

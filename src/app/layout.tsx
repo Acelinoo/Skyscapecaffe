@@ -20,6 +20,8 @@ const caveat = Caveat({
   display: "swap",
 });
 
+import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
+
 export const metadata: Metadata = {
   title: "Skyscapecafe | Cafe, Eatery & Restaurant Bandung",
   description:
@@ -44,7 +46,11 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/icon.png",
+    icon: [
+      { url: "/icon.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
     shortcut: "/icon.png",
     apple: "/icon.png",
   },
@@ -61,7 +67,7 @@ export default function RootLayout({
       className={`${playfair.variable} ${jakarta.variable} ${caveat.variable} scroll-smooth antialiased`}
     >
       <body className="min-h-screen bg-[#F3F4F6] text-[#373A3E] font-sans selection:bg-[#373A3E] selection:text-[#F3F4F6]">
-        {children}
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
   );

@@ -95,22 +95,22 @@ export function VipMeetingSection({ onOpenReservation }: VipMeetingSectionProps)
               </p>
             </div>
 
-            {/* Facilities Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+            {/* Facilities Grid - 2 Columns on Mobile */}
+            <div className="grid grid-cols-2 gap-2 sm:gap-3.5 pt-2">
               {vipFacilities.map((fac) => {
                 const Icon = fac.icon;
                 return (
                   <div
                     key={fac.title}
-                    className="p-3.5 bg-[#24272A] border border-[#80858A]/30 transition-colors hover:border-[#D8DCDE]"
+                    className="gsap-reveal p-2.5 sm:p-3.5 bg-[#24272A] border border-[#80858A]/30 transition-colors hover:border-[#D8DCDE]"
                   >
-                    <div className="flex items-center gap-2 text-[#D8DCDE] mb-1">
-                      <Icon className="w-4 h-4 shrink-0" />
-                      <h4 className="text-[11px] font-mono font-bold tracking-wider uppercase">
+                    <div className="flex items-center gap-1.5 sm:gap-2 text-[#D8DCDE] mb-1">
+                      <Icon className="w-3.5 sm:w-4 h-3.5 sm:h-4 shrink-0" />
+                      <h4 className="text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase truncate">
                         {fac.title}
                       </h4>
                     </div>
-                    <p className="text-[11px] text-[#9DA2A7] leading-relaxed">
+                    <p className="text-[10px] sm:text-[11px] text-[#9DA2A7] leading-relaxed line-clamp-2 sm:line-clamp-3">
                       {fac.desc}
                     </p>
                   </div>

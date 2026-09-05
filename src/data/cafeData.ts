@@ -112,7 +112,7 @@ export const POPULAR_PICKS: MenuItem[] = [
   },
 ];
 
-export const FEATURED_10_MENU: MenuItem[] = [
+export const FEATURED_8_MENU: MenuItem[] = [
   {
     id: "feat-kopi-skyscape",
     name: "Iced Kopi Skyscape",
@@ -201,29 +201,9 @@ export const FEATURED_10_MENU: MenuItem[] = [
     highlightBadge: "CHEF SIGNATURE",
     subOptions: "Western Pasta Spesial",
   },
-  {
-    id: "feat-spicy-ramen",
-    name: "Spicy Ramen Beef",
-    category: "main-course",
-    price: 50000,
-    priceFormatted: "Rp 50.000",
-    description: "Mi ramen kenyal dalam kuah kaldu pedas berempah gurih dengan topping irisan daging sapi empuk.",
-    image: "/images/menu-ramen.jpg",
-    highlightBadge: "REKOMENDASI",
-    subOptions: "Kaldu Hangat Pedas Gurih",
-  },
-  {
-    id: "feat-ayam-matah",
-    name: "Ayam Sambal Matah",
-    category: "main-course",
-    price: 39000,
-    priceFormatted: "Rp 39.000",
-    description: "Nasi hangat dengan potongan ayam renyah berbumbu dan siraman sambal matah khas Bali beraroma serai.",
-    image: "/images/menu-ayam-sambal-matah.jpg",
-    highlightBadge: "REKOMENDASI",
-    subOptions: "Rice Bowl Gurih Pedas",
-  },
 ];
+
+export const FEATURED_10_MENU = FEATURED_8_MENU;
 
 export const ALL_MENU_ITEMS: MenuItem[] = [
   // --- LIGHTBITES ---

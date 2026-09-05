@@ -39,10 +39,10 @@ export default function Home() {
       {/* Our Story Section (Matching Gambar 1 with Authentic Bar Counter Photo) */}
       <OurStorySection />
 
-      {/* Dedicated VIP Room & Meeting Gathering Section (with Projector & Glasshouse photo) */}
+      {/* Dedicated VIP Room & Meeting Gathering Section (with Glasshouse photo) */}
       <VipMeetingSection
         onOpenReservation={() =>
-          handleOpenReservation("Ruang VIP Meeting & Gathering (Termasuk Proyektor)")
+          handleOpenReservation("Ruang VIP Glasshouse (Meeting / Gathering)")
         }
       />
 
