@@ -140,16 +140,40 @@ export function Footer({ onOpenReservation }: FooterProps) {
           </div>
         </div>
 
-        {/* Bottom Copyright Bar */}
+        {/* Bottom Copyright & Credit Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#80858A]">
-          <p>© {new Date().getFullYear()} Skyscapecafe Bandung. Seluruh hak cipta dilindungi.</p>
+          <div className="space-y-1.5 text-center sm:text-left">
+            <p>© {new Date().getFullYear()} Skyscapecafe Bandung. Seluruh hak cipta dilindungi.</p>
+            <p className="text-[11px] text-[#9DA2A7]">
+              Web ini dibuat oleh{" "}
+              <a
+                href="https://www.gerobaklink.my.id"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#F3F4F6] font-semibold hover:underline transition-colors"
+              >
+                Gerobaklink
+              </a>{" "}
+              (
+              <a
+                href="https://www.gerobaklink.my.id"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#D8DCDE] hover:text-white underline-offset-2 hover:underline transition-colors"
+              >
+                www.gerobaklink.my.id
+              </a>
+              )
+            </p>
+          </div>
+
           <div className="flex items-center gap-6">
-            <span className="font-mono text-[11px] text-[#9DA2A7]">
+            <span className="font-mono text-[11px] text-[#9DA2A7] hidden md:inline">
               KUALITAS KOPI & PANORAMA KOTA BANDUNG
             </span>
             <Link
               href="#beranda"
-              className="p-1.5 text-[#9DA2A7] hover:text-[#F3F4F6] hover:bg-[#80858A]/20 transition-colors"
+              className="p-1.5 text-[#9DA2A7] hover:text-[#F3F4F6] hover:bg-[#80858A]/20 transition-colors cursor-pointer"
               aria-label="Kembali ke atas"
             >
               <ArrowUp className="w-4 h-4" />
