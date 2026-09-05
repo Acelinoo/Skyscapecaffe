@@ -35,7 +35,7 @@ export function PopularPicksSection() {
               {/* Product Image */}
               <div className="relative aspect-square w-full overflow-hidden bg-[#373A3E] mb-4">
                 <Image
-                  src={item.image}
+                  src={item.image || "/images/classic-latte.jpg"}
                   alt={item.name}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -56,10 +56,10 @@ export function PopularPicksSection() {
                   {item.name}
                 </h3>
                 <p className="text-xs text-[#80858A] italic">
-                  {item.id === "pop-1" && "Smooth & Balanced"}
-                  {item.id === "pop-2" && "Rich & Indulgent"}
-                  {item.id === "pop-3" && "Sweet & Creamy"}
-                  {item.id === "pop-4" && "Fresh & Healthy"}
+                  {item.id === "pop-coffee-latte" && "Smooth & Balanced"}
+                  {item.id === "pop-caramel-macchiato" && "Rich & Indulgent"}
+                  {item.id === "pop-carbonara" && "Creamy & Savory"}
+                  {item.id === "pop-tahu-cabe-garam" && "Crispy & Spicy"}
                 </p>
                 <div className="pt-2">
                   <span className="font-serif text-base sm:text-lg font-bold text-[#373A3E]">
