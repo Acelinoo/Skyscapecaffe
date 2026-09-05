@@ -76,8 +76,16 @@ export function WaveFeatureStrip() {
         </div>
       </div>
 
-      {/* Bottom Subtle Transition Border */}
-      <div className="w-full h-[1px] bg-[#80858A]/30" />
+      {/* Bottom Organic Wave Transition Curve (from #373A3E to #F3F4F6) */}
+      <div className="w-full overflow-hidden leading-none -mb-1">
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="relative block w-full h-10 sm:h-14 lg:h-16 fill-[#F3F4F6]"
+        >
+          <path d="M0,120 C200,30 400,100 600,40 C800,-20 1000,80 1200,20 L1200,120 L0,120 Z"></path>
+        </svg>
+      </div>
     </section>
   );
 }

@@ -4,14 +4,21 @@ import { SkyscapeLogo } from "./SkyscapeLogo";
 import { MessageCircle, ExternalLink, ArrowUp } from "lucide-react";
 import { CAFE_INFO } from "@/data/cafeData";
 
+import { BrushWaveTop } from "./BrushWave";
+
 interface FooterProps {
   onOpenReservation: () => void;
 }
 
 export function Footer({ onOpenReservation }: FooterProps) {
   return (
-    <footer className="w-full bg-[#373A3E] text-[#F3F4F6] border-t border-[#80858A]/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+    <footer className="w-full bg-[#373A3E] text-[#F3F4F6] overflow-hidden">
+      {/* Top Brush Stroke Wave Transition from #F3F4F6 */}
+      <BrushWaveTop
+        className="w-full h-10 sm:h-14 lg:h-16 -mt-1"
+        fillColor="#F3F4F6"
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#80858A]/30">
           {/* Col 1: Brand & Bio */}
           <div className="lg:col-span-4 space-y-4">
