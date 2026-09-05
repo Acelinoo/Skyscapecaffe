@@ -105,8 +105,8 @@ export function OurStorySection() {
               {/* Image Container */}
               <div className="relative aspect-[4/3] w-full overflow-hidden shadow-xl border border-[#D8DCDE] bg-[#373A3E]">
                 <Image
-                  src="/images/story-coffee.jpg"
-                  alt="Secangkir kopi hangat dan croissant segar di Skyscapecafe"
+                  src="/images/skyscape-bar-counter.jpg"
+                  alt="Bar kopi dan konter pastry barista Skyscapecafe Bandung"
                   fill
                   className="object-cover transition-transform duration-700 hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -159,7 +159,7 @@ export function OurStorySection() {
               </span>
               <button
                 onClick={() => setVideoModalOpen(false)}
-                className="p-1 text-[#9DA2A7] hover:text-[#F3F4F6] transition-colors"
+                className="p-1 text-[#9DA2A7] hover:text-[#F3F4F6] transition-colors cursor-pointer"
                 aria-label="Tutup pemutar video"
               >
                 <X className="w-5 h-5" />
@@ -168,8 +168,8 @@ export function OurStorySection() {
 
             <div className="relative aspect-video w-full mt-3 bg-black overflow-hidden border border-[#80858A]/20">
               <Image
-                src="/images/bandung-sunset.jpg"
-                alt="Panorama Sunset dan City Lights Bandung di Skyscapecafe"
+                src="/images/skyscape-outdoor-balcony.jpg"
+                alt="Area balkon terbuka dengan pemandangan perbukitan hijau Skyscapecafe"
                 fill
                 className="object-cover"
               />
@@ -178,10 +178,10 @@ export function OurStorySection() {
                   PUNCLUT • CIUMBULEUIT ATAS BANDUNG
                 </span>
                 <h3 className="font-serif text-2xl text-[#F3F4F6]">
-                  Panorama Sunset & Gemerlap City Lights
+                  Area Balkon Terbuka & Panorama Lembah Hijau
                 </h3>
                 <p className="text-xs text-[#9DA2A7] max-w-lg mt-1">
-                  Kombinasi hawa sejuk dataran tinggi Bandung dengan lanskap kota terbuka yang memukau. Kunjungi langsung Skyscapecafe untuk pengalaman langsung.
+                  Kombinasi deretan kursi balkon menghadap rimbunnya hutan pinus dan udara segar pegunungan Bandung.
                 </p>
               </div>
             </div>

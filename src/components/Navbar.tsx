@@ -24,9 +24,10 @@ export function Navbar({ onOpenReservation }: NavbarProps) {
   const navLinks = [
     { label: "BERANDA", href: "#beranda" },
     { label: "TENTANG KAMI", href: "#tentang-kami" },
-    { label: "KEUNGGULAN", href: "#keunggulan" },
+    { label: "RUANG VIP & MEETING", href: "#ruang-vip" },
     { label: "PILIHAN FAVORIT", href: "#pilihan-favorit" },
     { label: "KATALOG MENU", href: "#katalog-menu" },
+    { label: "GALERI", href: "#galeri" },
     { label: "ULASAN GOOGLE", href: "#ulasan" },
     { label: "LOKASI & JAM", href: "#lokasi" },
   ];

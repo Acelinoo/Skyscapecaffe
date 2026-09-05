@@ -16,14 +16,14 @@ export function GoldenHourGuide({ onOpenReservation }: GoldenHourGuideProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Column: Visual Banner */}
           <div className="lg:col-span-6 relative order-2 lg:order-1">
-            <div className="relative aspect-[16/10] w-full overflow-hidden shadow-xl border border-[#D8DCDE] bg-[#373A3E]">
-              <Image
-                src="/images/bandung-sunset.jpg"
-                alt="Pemandangan Golden Hour Sunset di Skyscapecafe Bandung"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+              <div className="relative aspect-[16/10] w-full overflow-hidden shadow-xl border border-[#D8DCDE] bg-[#373A3E]">
+                <Image
+                  src="/images/skyscape-outdoor-pampas.jpg"
+                  alt="Pemandangan teras santai outdoor Skyscapecafe Bandung di antara ilalang dan panorama langit"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               <div className="absolute inset-0 bg-gradient-to-t from-[#373A3E]/70 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-[#F3F4F6]">
                 <span className="text-[10px] font-mono tracking-widest text-[#D8DCDE] uppercase block mb-0.5">

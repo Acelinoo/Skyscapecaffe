@@ -52,6 +52,16 @@ export function Footer({ onOpenReservation }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="#ruang-vip" className="hover:text-[#F3F4F6] transition-colors">
+                  Ruang VIP & Meeting
+                </Link>
+              </li>
+              <li>
+                <Link href="#galeri" className="hover:text-[#F3F4F6] transition-colors">
+                  Galeri Suasana
+                </Link>
+              </li>
+              <li>
                 <Link href="#pilihan-favorit" className="hover:text-[#F3F4F6] transition-colors">
                   Pilihan Favorit (Popular Picks)
                 </Link>

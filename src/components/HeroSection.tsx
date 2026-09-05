@@ -112,13 +112,13 @@ export function HeroSection({ onOpenReservation }: HeroSectionProps) {
               <div className="absolute -inset-2 bg-gradient-to-tr from-[#373A3E]/10 to-transparent transform rotate-1 pointer-events-none" />
 
               {/* Main Image Container */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden shadow-xl border border-[#D8DCDE] bg-[#373A3E]">
+              <div className="relative aspect-[3/4] max-h-[560px] w-full overflow-hidden shadow-xl border border-[#D8DCDE] bg-[#373A3E]">
                 <Image
-                  src="/images/hero-cafe.jpg"
-                  alt="Suasana interior dan pemandangan sunset Skyscapecafe Bandung"
+                  src="/images/skyscape-exterior.jpg"
+                  alt="Gedung utama Skyscapecafe Bandung berarsitektur kaca A-frame di kawasan Punclut"
                   fill
                   priority
-                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  className="object-cover object-center transition-transform duration-700 hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
 
@@ -127,8 +127,8 @@ export function HeroSection({ onOpenReservation }: HeroSectionProps) {
 
                 {/* Floating Sign / Atmosphere Note */}
                 <div className="absolute top-4 right-4 bg-[#373A3E]/90 text-[#F3F4F6] px-3.5 py-1.5 backdrop-blur-sm border border-[#80858A]/40 text-right">
-                  <span className="font-script text-base text-[#D8DCDE] block leading-tight">
-                    sunset & city lights
+                  <span className="font-serif text-xs text-[#D8DCDE] block font-semibold leading-tight">
+                    SKYSCAPE CAFE & EATERY
                   </span>
                   <span className="text-[9px] font-mono tracking-widest uppercase text-[#9DA2A7]">
                     PUNCLUT • BANDUNG
@@ -138,7 +138,7 @@ export function HeroSection({ onOpenReservation }: HeroSectionProps) {
                 {/* Bottom Image Tag */}
                 <div className="absolute bottom-4 left-4 bg-[#F3F4F6]/95 text-[#373A3E] px-3.5 py-1.5 border border-[#D8DCDE] backdrop-blur-sm">
                   <span className="text-[10px] font-mono tracking-widest uppercase font-semibold">
-                    [SKYSCAPE PERSPECTIVE]
+                    [GEDUNG UTAMA // A-FRAME GLASS]
                   </span>
                 </div>
               </div>

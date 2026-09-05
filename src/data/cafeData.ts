@@ -48,6 +48,18 @@ export const CAFE_INFO = {
     altitude: "1.240 mdpl",
     viewSpan: "360° Panorama",
   },
+  vipRoom: {
+    title: "Ruang VIP Meeting & Gathering",
+    capacity: "15 - 35 Orang",
+    facilities: [
+      "Proyektor HD & Layar Presentasi",
+      "Koneksi Wi-Fi Berkecepatan Tinggi",
+      "Stop Kontak di Setiap Sisi Meja",
+      "Tata Suara (Audio Sound System)",
+      "Ruangan Glasshouse Ber-AC & Sejuk",
+      "Pilihan Paket Coffee Break & Makanan",
+    ],
+  },
 };
 
 export const POPULAR_PICKS: MenuItem[] = [
