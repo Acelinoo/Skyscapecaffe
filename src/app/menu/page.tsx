@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ALL_MENU_ITEMS, CAFE_INFO } from "@/data/cafeData";
 import { SkyscapeLogo } from "@/components/SkyscapeLogo";
@@ -67,7 +68,7 @@ export default function MenuPage() {
       </header>
 
       {/* Main Content Area */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+      <main className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-16">
         {/* Page Title & Context */}
         <div className="text-center space-y-3 mb-10">
           <span className="text-[11px] font-mono tracking-[0.25em] text-[#80858A] uppercase">
@@ -144,57 +145,72 @@ export default function MenuPage() {
           </div>
         </div>
 
-        {/* Menu Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Menu Grid - 2 Columns on Mobile, 2 on Tablet, 3 on Desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 lg:gap-5">
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="flex flex-col bg-white border border-[#D8DCDE] p-5 transition-all duration-200 hover:border-[#80858A] hover:shadow-sm"
+              className="flex flex-col justify-between bg-white border border-[#D8DCDE] p-2.5 sm:p-5 transition-all duration-200 hover:border-[#80858A] hover:shadow-sm"
             >
-              {/* Header: Name + Badge + Price */}
-              <div className="flex items-start justify-between gap-3 border-b border-[#D8DCDE] pb-3 mb-3">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="font-serif text-base font-semibold text-[#373A3E] leading-snug">
-                      {item.name}
-                    </h3>
-                    {item.highlightBadge && (
-                      <span className="inline-flex items-center gap-1 bg-[#373A3E] text-[#F3F4F6] text-[9px] font-mono tracking-wider uppercase px-1.5 py-0.5 border border-[#80858A]/30">
-                        <ThumbsUp className="w-2.5 h-2.5 text-[#F3F4F6]" />
-                        {item.highlightBadge}
+              <div>
+                {/* Optional Photo if item has image */}
+                {item.image && (
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#373A3E] mb-2 sm:mb-3">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </div>
+                )}
+
+                {/* Header: Name + Badge + Price */}
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1 sm:gap-2 border-b border-[#D8DCDE] pb-2 sm:pb-3 mb-2 sm:mb-3">
+                  <div className="space-y-0.5 sm:space-y-1 min-w-0">
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <h3 className="font-serif text-xs sm:text-base font-semibold text-[#373A3E] leading-snug line-clamp-1 sm:line-clamp-2">
+                        {item.name}
+                      </h3>
+                      {item.highlightBadge && (
+                        <span className="inline-flex items-center gap-0.5 sm:gap-1 bg-[#373A3E] text-[#F3F4F6] text-[8px] sm:text-[9px] font-mono tracking-wider uppercase px-1 sm:px-1.5 py-0.5 border border-[#80858A]/30 shrink-0">
+                          <ThumbsUp className="w-2 sm:w-2.5 h-2 sm:h-2.5 text-[#F3F4F6]" />
+                          <span>{item.highlightBadge}</span>
+                        </span>
+                      )}
+                    </div>
+
+                    {item.subOptions && (
+                      <span className="text-[9px] sm:text-[11px] font-mono text-[#80858A] italic block truncate">
+                        ({item.subOptions})
                       </span>
                     )}
                   </div>
 
-                  {item.subOptions && (
-                    <span className="text-[11px] font-mono text-[#80858A] italic block">
-                      ({item.subOptions})
-                    </span>
-                  )}
+                  <span className="font-serif text-xs sm:text-base font-bold text-[#373A3E] shrink-0">
+                    {item.priceFormatted}
+                  </span>
                 </div>
 
-                <span className="font-serif text-base font-bold text-[#373A3E] shrink-0">
-                  {item.priceFormatted}
-                </span>
+                {/* Description */}
+                <p className="text-[10px] sm:text-xs text-[#80858A] leading-relaxed line-clamp-2 sm:line-clamp-3">
+                  {item.description}
+                </p>
               </div>
 
-              {/* Description */}
-              <p className="text-xs text-[#80858A] leading-relaxed flex-grow">
-                {item.description}
-              </p>
-
               {/* Footer Meta */}
-              <div className="pt-3 mt-3 border-t border-[#D8DCDE]/60 flex items-center justify-between text-[10px] font-mono text-[#80858A] uppercase">
-                <span>
+              <div className="pt-2 sm:pt-3 mt-2 sm:mt-3 border-t border-[#D8DCDE]/60 flex items-center justify-between text-[8px] sm:text-[10px] font-mono text-[#80858A] uppercase">
+                <span className="truncate pr-1">
                   {item.category === "coffee" && "Kopi Spesialti"}
                   {item.category === "milk-based" && "Susu & Cokelat"}
                   {item.category === "refreshment" && "Minuman Segar"}
                   {item.category === "tea" && "Teh & Artisan"}
                   {item.category === "light-bites" && "Makanan Ringan"}
                   {item.category === "main-course" && "Hidangan Utama"}
-                  {item.category === "special-days" && "Spesial Jumat - Minggu"}
+                  {item.category === "special-days" && "Spesial Akhir Pekan"}
                 </span>
-                <span className="text-[#373A3E] font-semibold">Tersedia</span>
+                <span className="text-[#373A3E] font-semibold shrink-0">Tersedia</span>
               </div>
             </div>
           ))}
