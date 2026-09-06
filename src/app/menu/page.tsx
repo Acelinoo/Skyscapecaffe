@@ -71,13 +71,13 @@ export default function MenuPage() {
       <main className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-16">
         {/* Page Title & Context */}
         <div className="text-center space-y-3 mb-10">
-          <span className="text-[11px] font-mono tracking-[0.25em] text-[#80858A] uppercase">
+          <span className="text-[11px] font-mono tracking-[0.25em] text-[#80858A] uppercase gsap-subtitle">
             [TRIAL OPENING // OFFICIAL MENU CATALOG]
           </span>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#373A3E] tracking-tight">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#373A3E] tracking-tight gsap-title">
             Katalog Menu Lengkap Skyscapecafe
           </h1>
-          <p className="text-xs sm:text-sm text-[#80858A] max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#80858A] max-w-2xl mx-auto leading-relaxed gsap-text">
             Daftar lengkap hidangan kuliner, kopi spesialti, minuman segar, dan
             menu spesial akhir pekan yang disajikan langsung di perbukitan
             Bandung.
@@ -85,7 +85,7 @@ export default function MenuPage() {
         </div>
 
         {/* Filter Controls: Dropdown + Search Input */}
-        <div className="bg-white border border-[#D8DCDE] p-4 sm:p-6 mb-10 shadow-sm space-y-4">
+        <div className="bg-white border border-[#D8DCDE] p-4 sm:p-6 mb-10 shadow-sm space-y-4 gsap-card">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
             {/* Search Input */}
             <div className="md:col-span-6 relative">
@@ -255,7 +255,7 @@ export default function MenuPage() {
         </div>
 
         {/* Bottom Reservation CTA */}
-        <div className="mt-8 p-6 bg-[#373A3E] text-[#F3F4F6] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-md">
+        <div className="mt-8 p-6 bg-[#373A3E] text-[#F3F4F6] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-md gsap-card">
           <div>
             <span className="text-[10px] font-mono tracking-widest text-[#9DA2A7] uppercase block mb-1">
               [RESERVASI MEJA & RUANGAN VIP]
@@ -270,7 +270,7 @@ export default function MenuPage() {
 
           <button
             onClick={() => setReservationOpen(true)}
-            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 bg-[#F3F4F6] hover:bg-white text-[#373A3E] text-xs font-semibold tracking-widest uppercase transition-colors cursor-pointer"
+            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 bg-[#F3F4F6] hover:bg-white text-[#373A3E] text-xs font-semibold tracking-widest uppercase transition-colors cursor-pointer gsap-btn"
           >
             <Calendar className="w-4 h-4" />
             <span>RESERVASI SEKARANG</span>

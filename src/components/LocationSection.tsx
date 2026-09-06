@@ -10,13 +10,13 @@ export function LocationSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center space-y-3 mb-12">
-          <span className="text-[11px] font-mono tracking-[0.25em] text-[#80858A] uppercase">
+          <span className="text-[11px] font-mono tracking-[0.25em] text-[#80858A] uppercase gsap-subtitle">
             [LOKASI & JAM OPERASIONAL]
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#373A3E] tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#373A3E] tracking-tight gsap-title">
             Kunjungi Skyscapecafe Bandung
           </h2>
-          <p className="text-xs sm:text-sm text-[#80858A] max-w-xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#80858A] max-w-xl mx-auto leading-relaxed gsap-text">
             Terletak strategis di kawasan Punclut - Ciumbuleuit Atas, mudah
             diakses dari pusat kota Bandung dengan suasana perbukitan yang sejuk.
           </p>
@@ -24,9 +24,9 @@ export function LocationSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Information Cards */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-6 gsap-stagger-group">
             {/* Address Card */}
-            <div className="bg-white border border-[#D8DCDE] p-6 space-y-3">
+            <div className="bg-white border border-[#D8DCDE] p-6 space-y-3 gsap-card">
               <div className="flex items-center gap-2.5 text-[#373A3E]">
                 <MapPin className="w-5 h-5 text-[#373A3E] shrink-0" />
                 <h3 className="font-serif text-lg font-semibold uppercase">
@@ -50,7 +50,7 @@ export function LocationSection() {
             </div>
 
             {/* Hours Card */}
-            <div className="bg-white border border-[#D8DCDE] p-6 space-y-3">
+            <div className="bg-white border border-[#D8DCDE] p-6 space-y-3 gsap-card">
               <div className="flex items-center gap-2.5 text-[#373A3E]">
                 <Clock className="w-5 h-5 text-[#373A3E] shrink-0" />
                 <h3 className="font-serif text-lg font-semibold uppercase">
@@ -75,7 +75,7 @@ export function LocationSection() {
             </div>
 
             {/* Accessibility & Facilities */}
-            <div className="bg-white border border-[#D8DCDE] p-6">
+            <div className="bg-white border border-[#D8DCDE] p-6 gsap-card">
               <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#373A3E] mb-3">
                 [FASILITAS CAFE & RESTAURANT]
               </h4>
@@ -91,7 +91,7 @@ export function LocationSection() {
           </div>
 
           {/* Right Column: Embedded Interactive Google Map */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 gsap-image-frame">
             <div className="bg-white border border-[#D8DCDE] p-3 shadow-sm">
               <div className="relative aspect-[4/3] sm:aspect-[16/10] w-full overflow-hidden border border-[#D8DCDE]">
                 <iframe

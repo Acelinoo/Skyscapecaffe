@@ -12,20 +12,20 @@ export function GoogleReviewsSection() {
         {/* Section Header & Google Rating Summary */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 sm:mb-12 border-b border-[#D8DCDE] pb-6 sm:pb-8">
           <div className="space-y-2 sm:space-y-3">
-            <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.25em] text-[#80858A] uppercase">
+            <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.25em] text-[#80858A] uppercase gsap-subtitle">
               [INTEGRASI ULASAN GOOGLE MAPS]
             </span>
-            <h2 className="font-serif text-2xl sm:text-4xl font-normal text-[#373A3E] tracking-tight">
+            <h2 className="font-serif text-2xl sm:text-4xl font-normal text-[#373A3E] tracking-tight gsap-title">
               Testimoni Pengunjung
             </h2>
-            <p className="text-xs sm:text-sm text-[#80858A] max-w-xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#80858A] max-w-xl leading-relaxed gsap-text">
               Ulasan otentik dari para tamu yang telah menikmati suasana senja,
               panorama malam, dan racikan hidangan di Skyscapecafe.
             </p>
           </div>
 
           {/* Rating Summary Box & Write Review Button */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 bg-white border border-[#D8DCDE] p-3.5 sm:p-5">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 bg-white border border-[#D8DCDE] p-3.5 sm:p-5 gsap-card">
             <div className="flex items-center gap-3 border-b sm:border-b-0 sm:border-r border-[#D8DCDE] pb-2.5 sm:pb-0 sm:pr-5">
               <div className="font-serif text-3xl sm:text-4xl font-bold text-[#373A3E]">
                 {CAFE_INFO.stats.googleRating}
@@ -60,11 +60,11 @@ export function GoogleReviewsSection() {
         </div>
 
         {/* Reviews Grid - 2 Columns on Mobile (Gambar 2 Layout) */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-6 gsap-stagger-group">
           {GOOGLE_REVIEWS.map((rev) => (
             <div
               key={rev.id}
-              className="gsap-reveal bg-white border border-[#D8DCDE] p-3 sm:p-5 flex flex-col justify-between transition-all duration-200 hover:border-[#80858A] hover:shadow-sm"
+              className="gsap-card bg-white border border-[#D8DCDE] p-3 sm:p-5 flex flex-col justify-between transition-all duration-200 hover:border-[#80858A] hover:shadow-sm"
             >
               <div className="space-y-2 sm:space-y-3">
                 {/* Header: User Avatar, Name, Rating */}

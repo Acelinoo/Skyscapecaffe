@@ -55,24 +55,24 @@ export function AtmosphereGallery() {
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center space-y-2 sm:space-y-3 mb-8 sm:mb-12">
-          <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.25em] text-[#80858A] uppercase">
+          <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.25em] text-[#80858A] uppercase gsap-subtitle">
             [FOTOGRAFI OTENTIK SKYSCAPECAFE]
           </span>
-          <h2 className="font-serif text-2xl sm:text-4xl font-normal text-[#373A3E] tracking-tight">
+          <h2 className="font-serif text-2xl sm:text-4xl font-normal text-[#373A3E] tracking-tight gsap-title">
             Sudut Suasana & Arsitektur
           </h2>
-          <p className="text-xs sm:text-sm text-[#80858A] max-w-xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#80858A] max-w-xl mx-auto leading-relaxed gsap-text">
             Potret nyata setiap sudut Skyscapecafe Bandung — dari kemegahan
             gedung A-frame, area balkon terbuka, hingga ruangan VIP.
           </p>
         </div>
 
         {/* Dynamic Gallery Grid - 2 Columns on Mobile */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-5 gsap-stagger-group">
           {galleryItems.map((item) => (
             <div
               key={item.title}
-              className={`gsap-reveal group relative overflow-hidden bg-[#373A3E] border border-[#D8DCDE] shadow-sm transition-all duration-300 hover:border-[#80858A] hover:shadow-lg ${item.span}`}
+              className={`gsap-card group relative overflow-hidden bg-[#373A3E] border border-[#D8DCDE] shadow-sm transition-all duration-300 hover:border-[#80858A] hover:shadow-lg ${item.span}`}
             >
               <div className={`relative w-full ${item.aspect} min-h-[160px] sm:min-h-[220px]`}>
                 <Image

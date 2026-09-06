@@ -18,7 +18,7 @@ export function OurStorySection() {
           {/* Left Column: Narrative Content */}
           <div className="lg:col-span-6 space-y-6">
             {/* Clean Section Label (Strictly non-pill) */}
-            <div className="flex items-center gap-3">
+            <div className="gsap-subtitle flex items-center gap-3">
               <span className="text-[11px] font-mono tracking-[0.25em] text-[#80858A] uppercase">
                 KISAH KAMI // OUR STORY
               </span>
@@ -26,14 +26,14 @@ export function OurStorySection() {
             </div>
 
             {/* Display Title */}
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#373A3E] tracking-tight leading-tight">
+            <h2 className="gsap-title font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#373A3E] tracking-tight leading-tight">
               LEBIH DARI
               <br />
               SEKADAR KOPI
             </h2>
 
             {/* Body Description */}
-            <div className="space-y-4 text-sm sm:text-base text-[#80858A] leading-relaxed">
+            <div className="gsap-text space-y-4 text-sm sm:text-base text-[#80858A] leading-relaxed">
               <p>
                 Kami meyakini bahwa secangkir kopi adalah jembatan yang
                 mempertemukan cerita, inspirasi, dan momen berharga. Berdiri di
@@ -51,7 +51,7 @@ export function OurStorySection() {
             </div>
 
             {/* Feature Highlights Minimalist Grid */}
-            <div className="grid grid-cols-2 gap-4 pt-2 border-t border-[#D8DCDE]">
+            <div className="gsap-card grid grid-cols-2 gap-4 pt-2 border-t border-[#D8DCDE]">
               <div className="flex items-start gap-3">
                 <Mountain className="w-5 h-5 text-[#373A3E] shrink-0 mt-0.5" />
                 <div>
@@ -78,7 +78,7 @@ export function OurStorySection() {
             </div>
 
             {/* CTA Button */}
-            <div className="pt-2">
+            <div className="gsap-btn pt-2">
               <Link
                 href="#katalog-menu"
                 className="inline-flex items-center gap-3 px-6 py-3.5 bg-[#373A3E] hover:bg-[#24272A] text-[#F3F4F6] text-xs font-semibold tracking-widest uppercase transition-colors group shadow-sm border border-[#373A3E]"
@@ -89,7 +89,7 @@ export function OurStorySection() {
             </div>
 
             {/* Botanical Accent Vector (Clean Minimal Monochrome Lines) */}
-            <div className="pt-4 opacity-40">
+            <div className="gsap-text pt-4 opacity-40">
               <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 35 C 30 20, 60 25, 115 5" stroke="#373A3E" strokeWidth="1.5" strokeLinecap="round"/>
                 <path d="M35 24 C 30 15, 38 8, 45 15 C 45 22, 38 23, 35 24 Z" stroke="#373A3E" strokeWidth="1.2"/>
@@ -101,7 +101,7 @@ export function OurStorySection() {
 
           {/* Right Column: Culinary Photo with Play Button */}
           <div className="lg:col-span-6 relative">
-            <div className="relative mx-auto max-w-lg lg:max-w-none">
+            <div className="gsap-image-frame relative mx-auto max-w-lg lg:max-w-none">
               {/* Image Container */}
               <div className="relative aspect-[4/3] w-full overflow-hidden shadow-xl border border-[#D8DCDE] bg-[#373A3E]">
                 <Image

@@ -21,7 +21,7 @@ export function HeroSection({ onOpenReservation }: HeroSectionProps) {
           {/* Left Column: Typography, Narrative & Actions */}
           <div className="lg:col-span-6 space-y-6 z-10">
             {/* Top Minimal Label (Strictly non-pill) */}
-            <div className="flex items-center gap-3">
+            <div className="gsap-hero-item flex items-center gap-3">
               <span className="text-[11px] font-mono tracking-[0.25em] text-[#80858A] uppercase">
                 BANDUNG HIGHLANDS // 1.240 MDPL
               </span>
@@ -29,7 +29,7 @@ export function HeroSection({ onOpenReservation }: HeroSectionProps) {
             </div>
 
             {/* Main Big Display Title */}
-            <div className="space-y-1">
+            <div className="gsap-hero-item space-y-1">
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.6rem] font-normal tracking-tight text-[#373A3E] leading-[1.1]">
                 GOOD COFFEE
                 <br />
@@ -41,7 +41,7 @@ export function HeroSection({ onOpenReservation }: HeroSectionProps) {
             </div>
 
             {/* Headline & Tagline from User Request */}
-            <div className="space-y-2 border-l-2 border-[#373A3E] pl-4">
+            <div className="gsap-hero-item space-y-2 border-l-2 border-[#373A3E] pl-4">
               <h2 className="text-base sm:text-lg font-semibold tracking-wide text-[#373A3E] uppercase">
                 {CAFE_INFO.headline}
               </h2>
@@ -51,14 +51,14 @@ export function HeroSection({ onOpenReservation }: HeroSectionProps) {
             </div>
 
             {/* Body Description */}
-            <p className="text-sm text-[#80858A] leading-relaxed max-w-xl">
+            <p className="gsap-hero-item text-sm text-[#80858A] leading-relaxed max-w-xl">
               Rasakan pengalaman bersantap dan menikmati racikan kopi artisan
               sembari memandangi matahari terbenam dan panorama gemerlap lampu
               kota Bandung yang spektakuler dari ketinggian Punclut.
             </p>
 
             {/* CTA Buttons */}
-            <div className="pt-2 flex flex-wrap items-center gap-3.5">
+            <div className="gsap-hero-item pt-2 flex flex-wrap items-center gap-3.5">
               <Link
                 href="#katalog-menu"
                 className="inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-[#373A3E] hover:bg-[#24272A] text-[#F3F4F6] text-xs font-semibold tracking-widest uppercase transition-all duration-200 border border-[#373A3E] group shadow-sm"
@@ -77,7 +77,7 @@ export function HeroSection({ onOpenReservation }: HeroSectionProps) {
             </div>
 
             {/* Quick Metrics Bar (Minimalist without pill) */}
-            <div className="pt-4 grid grid-cols-3 gap-4 border-t border-[#D8DCDE] max-w-md">
+            <div className="gsap-hero-item pt-4 grid grid-cols-3 gap-4 border-t border-[#D8DCDE] max-w-md">
               <div>
                 <span className="block font-serif text-xl sm:text-2xl text-[#373A3E]">
                   4.8 / 5.0
@@ -107,7 +107,7 @@ export function HeroSection({ onOpenReservation }: HeroSectionProps) {
 
           {/* Right Column: Hero Image Container with Ambient Border & Tags */}
           <div className="lg:col-span-6 relative">
-            <div className="relative mx-auto max-w-lg lg:max-w-none">
+            <div className="gsap-hero-visual relative mx-auto max-w-lg lg:max-w-none">
               {/* Background ambient aesthetic shadow frame */}
               <div className="absolute -inset-2 bg-gradient-to-tr from-[#373A3E]/15 to-transparent transform rotate-1 pointer-events-none" />
 

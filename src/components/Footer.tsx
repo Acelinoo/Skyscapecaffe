@@ -19,9 +19,9 @@ export function Footer({ onOpenReservation }: FooterProps) {
         fillColor="#F3F4F6"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#80858A]/30">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#80858A]/30 gsap-stagger-group">
           {/* Col 1: Brand & Bio */}
-          <div className="lg:col-span-4 space-y-4">
+          <div className="lg:col-span-4 space-y-4 gsap-card">
             <Link href="#beranda" className="inline-block focus:outline-none">
               <SkyscapeLogo className="h-10" variant="light" showText={true} />
             </Link>
@@ -38,7 +38,7 @@ export function Footer({ onOpenReservation }: FooterProps) {
           </div>
 
           {/* Col 2: Navigasi Cepat */}
-          <div className="lg:col-span-3 space-y-3">
+          <div className="lg:col-span-3 space-y-3 gsap-card">
             <h4 className="font-serif text-sm tracking-wider uppercase text-[#F3F4F6]">
               Navigasi Halaman
             </h4>
@@ -92,7 +92,7 @@ export function Footer({ onOpenReservation }: FooterProps) {
           </div>
 
           {/* Col 3: Jam Operasional */}
-          <div className="lg:col-span-2 space-y-3">
+          <div className="lg:col-span-2 space-y-3 gsap-card">
             <h4 className="font-serif text-sm tracking-wider uppercase text-[#F3F4F6]">
               Jam Buka
             </h4>
@@ -112,7 +112,7 @@ export function Footer({ onOpenReservation }: FooterProps) {
           </div>
 
           {/* Col 4: Layanan & Reservasi */}
-          <div className="lg:col-span-3 space-y-3">
+          <div className="lg:col-span-3 space-y-3 gsap-card">
             <h4 className="font-serif text-sm tracking-wider uppercase text-[#F3F4F6]">
               Reservasi & Kontak
             </h4>
@@ -141,7 +141,7 @@ export function Footer({ onOpenReservation }: FooterProps) {
         </div>
 
         {/* Bottom Copyright & Credit Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#80858A]">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#80858A] gsap-text">
           <div className="space-y-1.5 text-center sm:text-left">
             <p>© {new Date().getFullYear()} Skyscapecafe Bandung. Seluruh hak cipta dilindungi.</p>
             <p className="text-[11px] text-[#9DA2A7]">

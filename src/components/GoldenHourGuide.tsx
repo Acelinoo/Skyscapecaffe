@@ -25,7 +25,7 @@ export function GoldenHourGuide({ onOpenReservation }: GoldenHourGuideProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Visual Banner with Authentic Terrace Photo */}
-          <div className="lg:col-span-6 relative order-2 lg:order-1">
+          <div className="lg:col-span-6 relative order-2 lg:order-1 gsap-image-frame">
             <div className="relative mx-auto max-w-lg lg:max-w-none">
               {/* Decorative ambient backdrop */}
               <div className="absolute -inset-2 bg-gradient-to-tr from-[#24272A] to-transparent transform -rotate-1 pointer-events-none" />
@@ -67,16 +67,16 @@ export function GoldenHourGuide({ onOpenReservation }: GoldenHourGuideProps) {
           {/* Right Column: Time Guide Narrative & Schedule */}
           <div className="lg:col-span-6 space-y-6 order-1 lg:order-2">
             <div className="space-y-2">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 gsap-subtitle">
                 <span className="text-[11px] font-mono tracking-[0.25em] text-[#9DA2A7] uppercase">
                   [PANDUAN WAKTU BERKUNJUNG TERBAIK]
                 </span>
                 <div className="h-[1px] w-12 bg-[#80858A]/40" />
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#F3F4F6] tracking-tight leading-tight">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#F3F4F6] tracking-tight leading-tight gsap-title">
                 Momen Terbaik Menikmati Sunset & City Lights
               </h2>
-              <p className="text-xs sm:text-sm text-[#D8DCDE] leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#D8DCDE] leading-relaxed gsap-text">
                 Untuk mendapatkan pengalaman visual paling menakjubkan, kami
                 menyarankan tamu untuk hadir sebelum senja tiba agar dapat
                 menyaksikan pergantian warna langit Bandung secara bertahap dari
@@ -85,11 +85,11 @@ export function GoldenHourGuide({ onOpenReservation }: GoldenHourGuideProps) {
             </div>
 
             {/* Time Blocks (Theme-Matched in Deep Charcoal with Amber Highlights) */}
-            <div className="space-y-3.5">
+            <div className="space-y-3.5 gsap-stagger-group">
               {GOLDEN_HOURS.map((item, idx) => (
                 <div
                   key={item.title}
-                  className="p-4 sm:p-5 bg-[#24272A]/90 border border-[#80858A]/30 transition-all duration-200 hover:border-[#D8DCDE]"
+                  className="p-4 sm:p-5 bg-[#24272A]/90 border border-[#80858A]/30 transition-all duration-200 hover:border-[#D8DCDE] gsap-card"
                 >
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <div className="flex items-center gap-2.5">
@@ -116,7 +116,7 @@ export function GoldenHourGuide({ onOpenReservation }: GoldenHourGuideProps) {
             <div className="pt-2">
               <button
                 onClick={onOpenReservation}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 bg-[#F3F4F6] hover:bg-white text-[#373A3E] text-xs font-semibold tracking-widest uppercase transition-all duration-200 shadow-lg border border-[#F3F4F6] cursor-pointer group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 bg-[#F3F4F6] hover:bg-white text-[#373A3E] text-xs font-semibold tracking-widest uppercase transition-all duration-200 shadow-lg border border-[#F3F4F6] cursor-pointer group gsap-btn"
               >
                 <Calendar className="w-4 h-4 transition-transform group-hover:scale-110" />
                 <span>RESERVASI MEJA OUTDOOR SEKARANG</span>

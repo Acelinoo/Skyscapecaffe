@@ -42,17 +42,17 @@ export function FullMenuSection({ onOpenReservation }: FullMenuSectionProps) {
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center space-y-2 sm:space-y-3 mb-8 sm:mb-10">
-          <div className="flex items-center justify-center gap-3">
+          <div className="gsap-subtitle flex items-center justify-center gap-3">
             <div className="h-[1px] w-8 sm:w-12 bg-[#80858A]/50" />
             <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.25em] text-[#80858A] uppercase">
               [8 MENU PILIHAN UNGGULAN]
             </span>
             <div className="h-[1px] w-8 sm:w-12 bg-[#80858A]/50" />
           </div>
-          <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-normal text-[#373A3E] tracking-tight">
+          <h2 className="gsap-title font-serif text-2xl sm:text-4xl lg:text-5xl font-normal text-[#373A3E] tracking-tight">
             Menu Favorit Skyscapecafe
           </h2>
-          <p className="text-xs sm:text-sm text-[#80858A] max-w-2xl mx-auto leading-relaxed px-2">
+          <p className="gsap-text text-xs sm:text-sm text-[#80858A] max-w-2xl mx-auto leading-relaxed px-2">
             Delapan racikan kopi dan sajian istimewa paling digemari pengunjung di
             ketinggian Bandung. Untuk melihat seluruh 50+ varian menu resmi, buka
             katalog lengkap kami.
@@ -60,7 +60,7 @@ export function FullMenuSection({ onOpenReservation }: FullMenuSectionProps) {
         </div>
 
         {/* Filter Bar with Dropdown & Direct Link to /menu */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 max-w-5xl mx-auto mb-6 sm:mb-10 pb-3 sm:pb-4 border-b border-[#D8DCDE]">
+        <div className="gsap-text flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 max-w-5xl mx-auto mb-6 sm:mb-10 pb-3 sm:pb-4 border-b border-[#D8DCDE]">
           <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
             <span className="text-[11px] sm:text-xs font-mono font-semibold text-[#373A3E] uppercase shrink-0">
               Kategori:
@@ -96,11 +96,11 @@ export function FullMenuSection({ onOpenReservation }: FullMenuSectionProps) {
         </div>
 
         {/* 8 Featured Menu Cards - 2 Cards per row on Mobile (Gambar 2 Layout) */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-6">
+        <div className="gsap-stagger-group grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-6">
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="gsap-reveal flex flex-col bg-[#F3F4F6] border border-[#D8DCDE] overflow-hidden transition-all duration-300 hover:border-[#80858A] hover:shadow-md group"
+              className="gsap-card flex flex-col bg-[#F3F4F6] border border-[#D8DCDE] overflow-hidden transition-all duration-300 hover:border-[#80858A] hover:shadow-md group"
             >
               {/* Menu Card Image */}
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#373A3E]">
@@ -159,7 +159,7 @@ export function FullMenuSection({ onOpenReservation }: FullMenuSectionProps) {
         </div>
 
         {/* Primary CTA to Dedicated Full Menu Page & Reservation */}
-        <div className="mt-10 sm:mt-14 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+        <div className="gsap-btn mt-10 sm:mt-14 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <Link
             href="/menu"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 bg-[#373A3E] hover:bg-[#24272A] text-[#F3F4F6] text-xs font-semibold tracking-widest uppercase transition-all duration-200 shadow-md border border-[#373A3E] group"
@@ -177,7 +177,7 @@ export function FullMenuSection({ onOpenReservation }: FullMenuSectionProps) {
           </button>
         </div>
 
-        <p className="text-[10px] sm:text-[11px] font-mono text-[#80858A] mt-3 sm:mt-4 text-center">
+        <p className="gsap-text text-[10px] sm:text-[11px] font-mono text-[#80858A] mt-3 sm:mt-4 text-center">
           * {CAFE_INFO.taxAndServiceNote} • Instagram{" "}
           <a
             href="https://www.instagram.com/skyscape.cafebandung"

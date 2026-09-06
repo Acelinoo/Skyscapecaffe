@@ -51,7 +51,7 @@ export function VipMeetingSection({ onOpenReservation }: VipMeetingSectionProps)
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Authentic Photo of VIP Glasshouse Room */}
           <div className="lg:col-span-6 relative">
-            <div className="relative aspect-[3/4] sm:aspect-[4/3] lg:aspect-[3/4] max-h-[560px] w-full overflow-hidden shadow-2xl border border-[#80858A]/40 bg-[#24272A]">
+            <div className="gsap-image-frame relative aspect-[3/4] sm:aspect-[4/3] lg:aspect-[3/4] max-h-[560px] w-full overflow-hidden shadow-2xl border border-[#80858A]/40 bg-[#24272A]">
               <Image
                 src="/images/skyscape-vip-glasshouse.jpg"
                 alt="Ruangan VIP Glasshouse Skyscapecafe untuk meeting dan gathering lengkap dengan proyektor"
@@ -80,15 +80,15 @@ export function VipMeetingSection({ onOpenReservation }: VipMeetingSectionProps)
           {/* Right Column: Narrative & Detailed Facility List */}
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-2">
-              <span className="text-[11px] font-mono tracking-[0.25em] text-[#9DA2A7] uppercase block">
+              <span className="gsap-subtitle text-[11px] font-mono tracking-[0.25em] text-[#9DA2A7] uppercase block">
                 [FASILITAS EKSKLUSIF // MEETING & GATHERING]
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.6rem] font-normal tracking-tight text-[#F3F4F6] leading-tight">
+              <h2 className="gsap-title font-serif text-3xl sm:text-4xl lg:text-[2.6rem] font-normal tracking-tight text-[#F3F4F6] leading-tight">
                 Ruang VIP Khusus
                 <br />
                 Meeting & Gathering
               </h2>
-              <p className="text-xs sm:text-sm text-[#D8DCDE] leading-relaxed pt-1">
+              <p className="gsap-text text-xs sm:text-sm text-[#D8DCDE] leading-relaxed pt-1">
                 Kombinasi ideal antara privasi, fasilitas presentasi modern, dan
                 pemandangan asri pegunungan Bandung. Dirancang khusus untuk
                 pertemuan bisnis, rapat instansi, reuni, workshop, maupun acara
@@ -97,13 +97,13 @@ export function VipMeetingSection({ onOpenReservation }: VipMeetingSectionProps)
             </div>
 
             {/* Facilities Grid - 2 Columns on Mobile */}
-            <div className="grid grid-cols-2 gap-2 sm:gap-3.5 pt-2">
+            <div className="gsap-stagger-group grid grid-cols-2 gap-2 sm:gap-3.5 pt-2">
               {vipFacilities.map((fac) => {
                 const Icon = fac.icon;
                 return (
                   <div
                     key={fac.title}
-                    className="gsap-reveal p-2.5 sm:p-3.5 bg-[#24272A] border border-[#80858A]/30 transition-colors hover:border-[#D8DCDE]"
+                    className="gsap-card p-2.5 sm:p-3.5 bg-[#24272A] border border-[#80858A]/30 transition-colors hover:border-[#D8DCDE]"
                   >
                     <div className="flex items-center gap-1.5 sm:gap-2 text-[#D8DCDE] mb-1">
                       <Icon className="w-3.5 sm:w-4 h-3.5 sm:h-4 shrink-0" />
@@ -120,7 +120,7 @@ export function VipMeetingSection({ onOpenReservation }: VipMeetingSectionProps)
             </div>
 
             {/* Action CTA Button */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
+            <div className="gsap-btn pt-2 flex flex-col sm:flex-row items-center gap-3">
               <button
                 onClick={onOpenReservation}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#F3F4F6] hover:bg-white text-[#373A3E] text-xs font-semibold tracking-widest uppercase transition-colors border border-[#F3F4F6] cursor-pointer shadow-md"

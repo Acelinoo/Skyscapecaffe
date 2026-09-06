@@ -13,24 +13,24 @@ export function PopularPicksSection() {
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center space-y-2 sm:space-y-3 mb-8 sm:mb-12">
-          <div className="flex items-center justify-center gap-3 sm:gap-4">
+          <div className="gsap-title flex items-center justify-center gap-3 sm:gap-4">
             <div className="h-[1px] w-8 sm:w-20 bg-[#80858A]/50" />
             <h2 className="font-serif text-xl sm:text-3xl lg:text-4xl font-normal tracking-wider text-[#373A3E] uppercase">
               POPULAR PICKS
             </h2>
             <div className="h-[1px] w-8 sm:w-20 bg-[#80858A]/50" />
           </div>
-          <p className="text-[10px] sm:text-xs font-mono tracking-widest text-[#80858A] uppercase">
+          <p className="gsap-subtitle text-[10px] sm:text-xs font-mono tracking-widest text-[#80858A] uppercase">
             [PILIHAN UNGGULAN PALING DIMINATI PENGUNJUNG]
           </p>
         </div>
 
         {/* 4 Cards Grid - 2 Columns on Mobile (Gambar 2 Layout) */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-6">
+        <div className="gsap-stagger-group grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-6">
           {POPULAR_PICKS.map((item) => (
             <div
               key={item.id}
-              className="gsap-reveal group flex flex-col items-center text-center bg-white border border-[#D8DCDE] p-2.5 sm:p-4 transition-all duration-300 hover:shadow-lg hover:border-[#80858A]"
+              className="gsap-card group flex flex-col items-center text-center bg-white border border-[#D8DCDE] p-2.5 sm:p-4 transition-all duration-300 hover:shadow-lg hover:border-[#80858A]"
             >
               {/* Product Image */}
               <div className="relative aspect-square w-full overflow-hidden bg-[#373A3E] mb-2 sm:mb-4">
@@ -73,7 +73,7 @@ export function PopularPicksSection() {
         </div>
 
         {/* Explore Full Menu Action */}
-        <div className="text-center mt-8 sm:mt-12">
+        <div className="gsap-btn text-center mt-8 sm:mt-12">
           <Link
             href="#katalog-menu"
             className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-widest text-[#373A3E] hover:text-[#80858A] uppercase border-b-2 border-[#373A3E] pb-1 hover:border-[#80858A] transition-colors"

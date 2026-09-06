@@ -43,13 +43,13 @@ export function WaveFeatureStrip() {
       </div>
 
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-16">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-0 lg:divide-x divide-[#80858A]/30">
+        <div className="gsap-stagger-group grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-0 lg:divide-x divide-[#80858A]/30">
           {features.map((feature) => {
             const IconComponent = feature.icon;
             return (
               <div
                 key={feature.title}
-                className="gsap-reveal flex flex-col items-center text-center p-3 sm:p-6 lg:px-8 bg-[#24272A]/50 lg:bg-transparent border border-[#80858A]/20 lg:border-none"
+                className="gsap-card flex flex-col items-center text-center p-3 sm:p-6 lg:px-8 bg-[#24272A]/50 lg:bg-transparent border border-[#80858A]/20 lg:border-none"
               >
                 {/* Minimalist Functional Icon */}
                 <div className="mb-2 sm:mb-4 text-[#D8DCDE]">
