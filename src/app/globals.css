@@ -21,7 +21,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Scroll behavior managed seamlessly by Lenis / GSAP */
 }
 
 body {
@@ -102,23 +102,8 @@ body {
 .gsap-btn,
 .gsap-image-frame,
 .gsap-hero-item,
-.gsap-hero-visual {
+.gsap-hero-visual,
+.gsap-reveal {
   will-change: transform, opacity;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .gsap-title,
-  .gsap-subtitle,
-  .gsap-text,
-  .gsap-card,
-  .gsap-btn,
-  .gsap-image-frame,
-  .gsap-hero-item,
-  .gsap-hero-visual,
-  .gsap-reveal {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
 }
 

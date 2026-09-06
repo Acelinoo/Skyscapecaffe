@@ -17,25 +17,6 @@ export function SmoothScrollProvider({
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Respect user's motion preference for accessibility
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (prefersReducedMotion) {
-      // Show all elements immediately if reduced motion is requested
-      document
-        .querySelectorAll(
-          ".gsap-title, .gsap-subtitle, .gsap-text, .gsap-card, .gsap-btn, .gsap-image-frame, .gsap-hero-item, .gsap-hero-visual, .gsap-reveal"
-        )
-        .forEach((el) => {
-          const element = el as HTMLElement;
-          element.style.opacity = "1";
-          element.style.transform = "none";
-        });
-      return;
-    }
-
     // Register GSAP ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
 
@@ -46,16 +27,13 @@ export function SmoothScrollProvider({
     let updateTicker: ((time: number) => void) | null = null;
 
     if (isDesktop) {
-      // Serene inertia scroll for desktop fine-pointer devices
+      // Smooth inertial scroll for desktop
       lenis = new Lenis({
-        duration: 1.3,
+        duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         orientation: "vertical",
-        gestureOrientation: "vertical",
         smoothWheel: true,
         wheelMultiplier: 0.9,
-        touchMultiplier: 1.0,
-        infinite: false,
       });
 
       lenisRef.current = lenis;
@@ -70,21 +48,20 @@ export function SmoothScrollProvider({
       gsap.ticker.lagSmoothing(0);
     }
 
-    // Initialize GSAP Animation Context for safe garbage collection & zero memory leak
+    // GSAP Animation Context
     const ctx = gsap.context(() => {
-      // 1. HERO SECTION ENTRANCE (Immediate staggered orchestrator on mount)
+      // 1. HERO SECTION ENTRANCE (Immediate smooth staggered reveal on mount)
       const heroItems = document.querySelectorAll(".gsap-hero-item");
       if (heroItems.length > 0) {
         gsap.fromTo(
           heroItems,
-          { opacity: 0, y: 22 },
+          { opacity: 0, y: 32 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.85,
-            stagger: 0.08,
-            ease: "power2.out",
-            clearProps: "transform,opacity",
+            duration: 0.95,
+            stagger: 0.1,
+            ease: "power3.out",
           }
         );
       }
@@ -93,15 +70,14 @@ export function SmoothScrollProvider({
       if (heroVisual) {
         gsap.fromTo(
           heroVisual,
-          { opacity: 0, scale: 1.03, y: 16 },
+          { opacity: 0, scale: 0.95, y: 24 },
           {
             opacity: 1,
             scale: 1,
             y: 0,
-            duration: 1.1,
-            ease: "power2.out",
-            delay: 0.15,
-            clearProps: "transform,opacity",
+            duration: 1.15,
+            delay: 0.2,
+            ease: "power3.out",
           }
         );
       }
@@ -111,18 +87,17 @@ export function SmoothScrollProvider({
       titles.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, y: 24 },
+          { opacity: 0, y: 32 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.85,
-            ease: "power2.out",
-            clearProps: "transform,opacity",
+            duration: 0.9,
+            ease: "power3.out",
             scrollTrigger: {
               trigger: el,
-              start: "top 90%",
+              start: "top 88%",
+              toggleActions: "play none none none",
               once: true,
-              fastScrollEnd: true,
             },
           }
         );
@@ -133,18 +108,17 @@ export function SmoothScrollProvider({
       subtitles.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, y: 14 },
+          { opacity: 0, y: 18 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.75,
+            duration: 0.8,
             ease: "power2.out",
-            clearProps: "transform,opacity",
             scrollTrigger: {
               trigger: el,
-              start: "top 92%",
+              start: "top 90%",
+              toggleActions: "play none none none",
               once: true,
-              fastScrollEnd: true,
             },
           }
         );
@@ -155,18 +129,17 @@ export function SmoothScrollProvider({
       texts.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, y: 18 },
+          { opacity: 0, y: 22 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
+            duration: 0.85,
             ease: "power2.out",
-            clearProps: "transform,opacity",
             scrollTrigger: {
               trigger: el,
               start: "top 88%",
+              toggleActions: "play none none none",
               once: true,
-              fastScrollEnd: true,
             },
           }
         );
@@ -177,18 +150,17 @@ export function SmoothScrollProvider({
       btns.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, y: 16 },
+          { opacity: 0, y: 18 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.75,
+            duration: 0.8,
             ease: "power2.out",
-            clearProps: "transform,opacity",
             scrollTrigger: {
               trigger: el,
-              start: "top 92%",
+              start: "top 90%",
+              toggleActions: "play none none none",
               once: true,
-              fastScrollEnd: true,
             },
           }
         );
@@ -199,19 +171,18 @@ export function SmoothScrollProvider({
       imageFrames.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, scale: 0.98, y: 22 },
+          { opacity: 0, scale: 0.96, y: 26 },
           {
             opacity: 1,
             scale: 1,
             y: 0,
-            duration: 0.9,
-            ease: "power2.out",
-            clearProps: "transform,opacity",
+            duration: 1.0,
+            ease: "power3.out",
             scrollTrigger: {
               trigger: el,
               start: "top 86%",
+              toggleActions: "play none none none",
               once: true,
-              fastScrollEnd: true,
             },
           }
         );
@@ -220,55 +191,70 @@ export function SmoothScrollProvider({
       // 7. STAGGER GROUPS (Grids of Cards: Features, VIP, Menu, Reviews, etc.)
       const staggerGroups = document.querySelectorAll(".gsap-stagger-group");
       staggerGroups.forEach((group) => {
-        const cards = group.querySelectorAll(
-          ".gsap-card, .gsap-reveal, > div"
-        );
+        const cards = group.querySelectorAll(".gsap-card, .gsap-reveal");
         if (cards.length > 0) {
           gsap.fromTo(
             cards,
-            { opacity: 0, y: 22 },
+            { opacity: 0, y: 30 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.8,
-              stagger: 0.08,
+              duration: 0.85,
+              stagger: 0.1,
               ease: "power2.out",
-              clearProps: "transform,opacity",
               scrollTrigger: {
                 trigger: group,
-                start: "top 88%",
+                start: "top 85%",
+                toggleActions: "play none none none",
                 once: true,
-                fastScrollEnd: true,
               },
             }
           );
         }
       });
 
-      // 8. STANDALONE GSAP REVEAL CARDS (Fallback / individual cards outside groups)
-      const standaloneReveals = document.querySelectorAll(
-        ".gsap-card:not(.gsap-stagger-group .gsap-card), .gsap-reveal:not(.gsap-stagger-group .gsap-reveal)"
+      // 8. STANDALONE CARDS (Outside stagger groups)
+      const allCards = Array.from(
+        document.querySelectorAll<HTMLElement>(".gsap-card, .gsap-reveal")
       );
-      standaloneReveals.forEach((el) => {
+      const standaloneCards = allCards.filter(
+        (card) => !card.closest(".gsap-stagger-group")
+      );
+
+      standaloneCards.forEach((card) => {
         gsap.fromTo(
-          el,
-          { opacity: 0, y: 20 },
+          card,
+          { opacity: 0, y: 25 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
+            duration: 0.85,
             ease: "power2.out",
-            clearProps: "transform,opacity",
             scrollTrigger: {
-              trigger: el,
+              trigger: card,
               start: "top 88%",
+              toggleActions: "play none none none",
               once: true,
-              fastScrollEnd: true,
             },
           }
         );
       });
     });
+
+    // Refresh ScrollTrigger after fonts and layout settle
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(() => {
+        ScrollTrigger.refresh();
+      });
+    }
+
+    const timer1 = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 150);
+
+    const timer2 = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 600);
 
     // Handle hash links smooth scrolling
     const handleAnchorClick = (e: MouseEvent) => {
@@ -284,7 +270,7 @@ export function SmoothScrollProvider({
           if (lenis) {
             lenis.scrollTo(targetElement as HTMLElement, {
               offset: -70,
-              duration: 1.3,
+              duration: 1.2,
             });
           } else {
             (targetElement as HTMLElement).scrollIntoView({
@@ -297,18 +283,14 @@ export function SmoothScrollProvider({
 
     document.addEventListener("click", handleAnchorClick);
 
-    // Refresh ScrollTrigger after elements paint
-    const timer = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 100);
-
     return () => {
-      clearTimeout(timer);
+      clearTimeout(timer1);
+      clearTimeout(timer2);
       document.removeEventListener("click", handleAnchorClick);
       if (updateTicker) {
         gsap.ticker.remove(updateTicker);
       }
-      ctx.revert(); // Revert all animations and clean up triggers
+      ctx.revert();
       if (lenis) {
         lenis.destroy();
       }

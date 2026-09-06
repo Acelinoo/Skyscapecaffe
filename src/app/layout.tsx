@@ -64,7 +64,7 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${playfair.variable} ${jakarta.variable} ${caveat.variable} scroll-smooth antialiased`}
+      className={`${playfair.variable} ${jakarta.variable} ${caveat.variable} antialiased`}
     >
       <body className="min-h-screen bg-[#F3F4F6] text-[#373A3E] font-sans selection:bg-[#373A3E] selection:text-[#F3F4F6]">
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
