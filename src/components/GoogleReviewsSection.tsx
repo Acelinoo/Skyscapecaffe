@@ -66,32 +66,30 @@ export function GoogleReviewsSection() {
               key={rev.id}
               className="gsap-card bg-white border border-[#D8DCDE] p-3 sm:p-5 flex flex-col justify-between transition-all duration-200 hover:border-[#80858A] hover:shadow-sm"
             >
-              <div className="space-y-2 sm:space-y-3">
-                {/* Header: User Avatar, Name, Rating */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 sm:w-9 sm:h-9 bg-[#373A3E] text-[#F3F4F6] font-mono font-semibold text-[10px] sm:text-xs flex items-center justify-center shrink-0">
-                      {rev.avatarText}
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="text-xs sm:text-sm font-semibold text-[#373A3E] truncate">
-                        {rev.author}
-                      </h4>
-                      <span className="text-[9px] sm:text-[10px] font-mono text-[#80858A] block">
-                        {rev.relativeTime}
-                      </span>
-                    </div>
+              <div className="space-y-2.5 sm:space-y-3">
+                {/* Header: User Avatar & Name */}
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 bg-[#373A3E] text-[#F3F4F6] font-mono font-semibold text-[10px] sm:text-xs flex items-center justify-center shrink-0">
+                    {rev.avatarText}
                   </div>
+                  <div className="min-w-0 flex-1">
+                    <h4 className="text-xs sm:text-sm font-semibold text-[#373A3E] truncate">
+                      {rev.author}
+                    </h4>
+                    <span className="text-[9px] sm:text-[10px] font-mono text-[#80858A] block">
+                      {rev.relativeTime}
+                    </span>
+                  </div>
+                </div>
 
-                  {/* Stars */}
-                  <div className="flex items-center gap-0.5 shrink-0">
-                    {[...Array(rev.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-2.5 sm:w-3.5 h-2.5 sm:h-3.5 fill-[#373A3E] text-[#373A3E]"
-                      />
-                    ))}
-                  </div>
+                {/* Stars Rating: Clean, uniform row, perfectly aligned across cards */}
+                <div className="flex items-center gap-1 text-[#373A3E]">
+                  {[...Array(rev.rating)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-3.5 h-3.5 fill-[#373A3E] text-[#373A3E]"
+                    />
+                  ))}
                 </div>
 
                 {/* Review Text */}
