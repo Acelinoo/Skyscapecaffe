@@ -77,30 +77,32 @@ export function HeroSection({ onOpenReservation }: HeroSectionProps) {
             </div>
 
             {/* Quick Metrics Bar (Minimalist without pill) */}
-            <div className="gsap-hero-item pt-4 grid grid-cols-3 gap-4 border-t border-[#D8DCDE] max-w-md">
-              <div>
-                <span className="block font-serif text-xl sm:text-2xl text-[#373A3E]">
-                  4.8 / 5.0
-                </span>
-                <span className="text-[10px] font-mono tracking-wider text-[#80858A] uppercase">
-                  Ulasan Google
-                </span>
-              </div>
-              <div>
-                <span className="block font-serif text-xl sm:text-2xl text-[#373A3E]">
-                  360° View
-                </span>
-                <span className="text-[10px] font-mono tracking-wider text-[#80858A] uppercase">
-                  City Lights
-                </span>
-              </div>
-              <div>
-                <span className="block font-serif text-xl sm:text-2xl text-[#373A3E]">
-                  10:00 - 23:00
-                </span>
-                <span className="text-[10px] font-mono tracking-wider text-[#80858A] uppercase">
-                  Buka Setiap Hari
-                </span>
+            <div className="gsap-hero-item pt-4 border-t border-[#D8DCDE] max-w-lg lg:max-w-xl">
+              <div className="grid grid-cols-3 gap-3 sm:gap-6">
+                <div>
+                  <span className="block font-serif text-lg sm:text-2xl text-[#373A3E] whitespace-nowrap">
+                    4.8 / 5.0
+                  </span>
+                  <span className="text-[10px] sm:text-[11px] font-mono tracking-wider text-[#80858A] uppercase whitespace-nowrap block mt-0.5">
+                    Ulasan Google
+                  </span>
+                </div>
+                <div>
+                  <span className="block font-serif text-lg sm:text-2xl text-[#373A3E] whitespace-nowrap">
+                    360° View
+                  </span>
+                  <span className="text-[10px] sm:text-[11px] font-mono tracking-wider text-[#80858A] uppercase whitespace-nowrap block mt-0.5">
+                    City Lights
+                  </span>
+                </div>
+                <div>
+                  <span className="block font-serif text-lg sm:text-2xl text-[#373A3E] whitespace-nowrap">
+                    10:00 - 23:00
+                  </span>
+                  <span className="text-[10px] sm:text-[11px] font-mono tracking-wider text-[#80858A] uppercase whitespace-nowrap block mt-0.5">
+                    Buka Setiap Hari
+                  </span>
+                </div>
               </div>
             </div>
           </div>
